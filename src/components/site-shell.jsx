@@ -64,18 +64,16 @@ export function SiteShell({ children }) {
       <header className="sticky top-0 z-40 border-b border-line bg-background/90 backdrop-blur-sm">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
           <Link
-            to="/"
-            className="flex items-center gap-2.5"
-            onClick={() => setOpen(false)}
+          to="/"
+          className="flex items-center"
+          onClick={() => setOpen(false)}
           >
-            <span className="grid size-7 place-items-center rounded-md bg-ink text-cream">
-              <span className="font-mono text-xs font-medium">T</span>
-            </span>
-
-            <span className="font-semibold tracking-tight">
-              Trevia <span className="text-mute">EV Technologies</span>
-            </span>
-          </Link>
+            <img
+            src="/trevia-logo.png"
+            alt="Trevia EV"
+            className="h-9 w-auto"
+            />
+            </Link>
 
           <nav className="hidden items-center gap-7 text-sm font-medium text-mute lg:flex">
             {navItems.map((item) => (
@@ -152,14 +150,12 @@ export function SiteShell({ children }) {
       <footer className="relative z-10 border-t border-line bg-background">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-14 lg:grid-cols-[1.35fr_2.65fr]">
           <div>
-            <Link to="/" className="flex items-center gap-2.5">
-              <span className="grid size-7 place-items-center rounded-md bg-ink text-cream">
-                <span className="font-mono text-xs font-medium">T</span>
-              </span>
-
-              <span className="font-semibold tracking-tight">
-                Trevia EV Technologies
-              </span>
+            <Link to="/" className="flex items-center">
+            <img
+            src="/trevia-logo.png"
+            alt="Trevia EV"
+            className="h-9 w-auto"
+            />
             </Link>
 
             <p className="mt-4 max-w-[30ch] text-sm leading-relaxed text-mute">
