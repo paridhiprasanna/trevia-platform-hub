@@ -41,20 +41,20 @@ const problems = [
     "Sites run in silos with no shared operational picture.",
   ],
   [
-    "Different hardware & standards",
-    "Different vendors and protocols resist a single control plane.",
+    "Multi-vendor hardware",
+    "Different charger vendors make networks harder to operate through one control layer.",
   ],
   [
     "Limited real-time visibility",
-    "Faults and status surface late, if at all.",
+    "Faults, charger status, and live sessions can be difficult to monitor across sites.",
   ],
   [
-    "Manual intervention",
-    "Operators rely on phone calls and on-site visits.",
+    "Manual operations",
+    "Operators rely on alerts, phone calls, and site visits to resolve issues.",
   ],
   [
     "Difficult multi-site scaling",
-    "Every new site multiplies the operational burden.",
+    "Every new site and charger adds operational complexity.",
   ],
 ];
 
@@ -77,13 +77,13 @@ const cmsFeatures = [
   ],
   [
     "04",
-    "Sessions & Transactions",
-    "Track charging sessions and transaction-level data for reporting and reconciliation.",
+    "Fault Visibility",
+    "Surface faults and errors reported by chargers directly to operators.",
   ],
   [
     "05",
-    "Fault Visibility",
-    "Surface faults and errors reported by chargers directly to operators.",
+    "Sessions & Transactions",
+    "Track charging sessions and transaction-level data for reporting and reconciliation.",
   ],
   [
     "06",
@@ -97,13 +97,13 @@ const cmsFeatures = [
   ],
   [
     "08",
-    "APIs & Integrations",
-    "Expose charging, session, and operational data for connected systems.",
+    "Analytics",
+    "Use aggregate operational and energy data for reporting and planning.",
   ],
   [
     "09",
-    "Analytics",
-    "Use aggregate operational and energy data for reporting and planning.",
+    "APIs & Integrations",
+    "Expose charging, session, and operational data for connected systems.",
   ],
 ];
 
@@ -123,31 +123,53 @@ useEffect(() => {
   return (
     <>
     
-    {/* INTRO */}
+   {/* INTRO */}
 <section className="relative z-0 h-screen bg-sun">
-  <div className="flex h-screen items-center justify-center">
-    <div className="text-center">
-      <img
-  src="/trevia-logo.png"
-  alt="Trevia EV"
-  className="mx-auto h-16 w-auto object-contain sm:h-20 lg:h-24"
-/>
+  <div className="flex h-screen items-center justify-center px-6">
+    <div className="w-full max-w-6xl text-center">
+
+      <div className="text-2xl font-bold tracking-[-0.03em] text-ink sm:text-3xl">
+        Trevia EV
+      </div>
 
       <h1 className="mt-6 text-5xl font-bold tracking-[-0.04em] text-ink sm:text-7xl lg:text-8xl">
-        Digital infrastructure
+        The operating layer
         <br />
         for EV charging.
       </h1>
 
-      <div className="mt-12 text-sm text-ink">
-        Scroll to explore <span className="ml-2">↓</span>
+      <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <Link
+          to="/contact"
+          className="inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 text-sm font-semibold text-cream transition hover:opacity-85"
+        >
+          Request a Demo
+          <span className="ml-2">→</span>
+        </Link>
+
+        <Link
+          to="/platform"
+          className="inline-flex items-center justify-center rounded-full border border-ink px-6 py-3 text-sm font-semibold text-ink transition hover:bg-ink hover:text-cream"
+        >
+          Explore the Platform
+          <span className="ml-2">→</span>
+        </Link>
       </div>
+
+      <p className="mt-6 text-xs font-medium tracking-wide text-ink/70">
+        OCPP-based infrastructure · Multi-site operations · Hardware-agnostic
+      </p>
+
+      <div className="mt-10 text-xs text-ink/60">
+        Scroll to explore ↓
+      </div>
+
     </div>
   </div>
 </section>
       {/* HERO */}
 <section className="sticky top-0 z-10 min-h-screen overflow-hidden bg-cream">
-          <Container className="grid gap-14 py-16 lg:grid-cols-12 lg:items-center lg:gap-16 lg:py-24">
+          <Container className="grid gap-14 py-12 lg:grid-cols-12 lg:items-center lg:gap-16 lg:py-24">
           <div className="reveal-up lg:col-span-5">
             <Eyebrow>EV Charging Infrastructure Software</Eyebrow>
 
@@ -207,304 +229,712 @@ useEffect(() => {
 
 
       {/* PROBLEM */}
-      <section className="border-y border-line bg-cream">
-        <Container className="py-14">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <SectionTitle
-              eyebrow="The problem"
-              title="Charging infrastructure is fragmented."
-            />
+<section className="border-y border-line bg-cream">
+  <Container className="py-14">
+    <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <SectionTitle
+        eyebrow="The problem"
+        title="Charging infrastructure is fragmented."
+      />
 
-            <p className="max-w-[40ch] text-sm leading-relaxed text-mute">
-              Disconnected equipment, mixed standards, and manual workarounds
-              make it hard to see or run a real network.
-            </p>
+      <p className="max-w-[40ch] text-sm leading-relaxed text-mute">
+        Disconnected equipment, mixed standards, and manual workarounds
+        make it hard to see or run a real network.
+      </p>
+    </div>
+
+    <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+
+      {/* 01 — DISCONNECTED NETWORKS */}
+      <div className="group relative min-h-[390px] overflow-hidden rounded-2xl border border-line bg-white p-6 transition-all duration-500 hover:-translate-y-2 hover:border-sun">
+        <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-sun transition-transform duration-500 group-hover:scale-x-100" />
+
+        <div className="flex items-center justify-between">
+          <span className="font-mono text-xs tracking-[0.2em] text-sun">
+            01
+          </span>
+          <span className="text-xs uppercase tracking-widest text-mute">
+            Network
+          </span>
+        </div>
+
+       {/* visual */}
+<div className="relative mt-8 h-40">
+  {/* Site A */}
+  <div className="absolute left-0 top-0 w-[46%] rounded-lg border border-line bg-cream p-2.5">
+    <div className="flex items-center gap-2">
+      <div className="h-8 w-4 rounded-sm border-2 border-ink bg-white">
+        <div className="mx-auto mt-1.5 size-1.5 rounded-full bg-sun" />
+      </div>
+
+      <div className="min-w-0">
+        <span className="block font-mono text-[8px] uppercase text-mute">
+          Site A
+        </span>
+        <span className="block text-[9px] font-semibold text-ink">
+          4 chargers
+        </span>
+      </div>
+    </div>
+
+    <div className="mt-2 border-t border-line pt-2">
+      <span className="font-mono text-[7px] uppercase text-mute">
+        CPO A
+      </span>
+      <div className="mt-1 h-3 rounded-sm bg-ink/10">
+        <div className="h-full w-3/4 rounded-sm bg-sun" />
+      </div>
+    </div>
+  </div>
+
+  {/* Site B */}
+  <div className="absolute right-0 top-0 w-[46%] rounded-lg border border-line bg-cream p-2.5">
+    <div className="flex items-center gap-2">
+      <div className="h-8 w-4 rounded-sm border-2 border-ink bg-white">
+        <div className="mx-auto mt-1.5 size-1.5 rounded-full bg-sun" />
+      </div>
+
+      <div className="min-w-0">
+        <span className="block font-mono text-[8px] uppercase text-mute">
+          Site B
+        </span>
+        <span className="block text-[9px] font-semibold text-ink">
+          6 chargers
+        </span>
+      </div>
+    </div>
+
+    <div className="mt-2 border-t border-line pt-2">
+      <span className="font-mono text-[7px] uppercase text-mute">
+        CPO B
+      </span>
+      <div className="mt-1 h-3 rounded-sm bg-ink/10">
+        <div className="h-full w-1/2 rounded-sm bg-sun" />
+      </div>
+    </div>
+  </div>
+
+  {/* Site C */}
+  <div className="absolute bottom-0 left-1/2 w-[46%] -translate-x-1/2 rounded-lg border border-line bg-cream p-2.5">
+    <div className="flex items-center gap-2">
+      <div className="h-8 w-4 rounded-sm border-2 border-ink bg-white">
+        <div className="mx-auto mt-1.5 size-1.5 rounded-full bg-sun" />
+      </div>
+
+      <div className="min-w-0">
+        <span className="block font-mono text-[8px] uppercase text-mute">
+          Site C
+        </span>
+        <span className="block text-[9px] font-semibold text-ink">
+          8 chargers
+        </span>
+      </div>
+    </div>
+
+    <div className="mt-2 border-t border-line pt-2">
+      <span className="font-mono text-[7px] uppercase text-mute">
+        CPO C
+      </span>
+      <div className="mt-1 h-3 rounded-sm bg-ink/10">
+        <div className="h-full w-2/3 rounded-sm bg-sun" />
+      </div>
+    </div>
+  </div>
+
+  {/* disconnected indicator */}
+  <div className="pointer-events-none absolute inset-0">
+    <div className="absolute left-1/2 top-[38%] h-px w-8 -translate-x-1/2 border-t border-dashed border-black/20" />
+    <div className="absolute left-1/2 top-[38%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white px-1.5 py-0.5 font-mono text-[7px] uppercase text-mute">
+      No shared layer
+    </div>
+  </div>
+</div>
+
+        <div className="mt-5">
+          <h3 className="text-xl font-semibold leading-tight text-ink">
+            Disconnected networks
+          </h3>
+
+          <p className="mt-3 text-sm leading-6 text-mute">
+            Sites run in silos with no shared operational picture.
+          </p>
+        </div>
+      </div>
+
+      {/* 02 — MULTI-VENDOR HARDWARE */}
+      <div className="group relative min-h-[390px] overflow-hidden rounded-2xl border border-line bg-white p-6 transition-all duration-500 hover:-translate-y-2 hover:border-sun">
+        <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-sun transition-transform duration-500 group-hover:scale-x-100" />
+
+        <div className="flex items-center justify-between">
+          <span className="font-mono text-xs tracking-[0.2em] text-sun">
+            02
+          </span>
+          <span className="text-xs uppercase tracking-widest text-mute">
+            Hardware
+          </span>
+        </div>
+
+        {/* visual */}
+<div className="relative mt-8 h-40">
+  <div className="grid grid-cols-4 gap-2">
+    {[
+      ["A", "Vendor A", "OCPP 1.6J"],
+      ["B", "Vendor B", "OCPP"],
+      ["C", "Vendor C", "Different"],
+      ["D", "Vendor D", "Custom"],
+    ].map(([id, vendor, protocol]) => (
+      <div key={id} className="text-center">
+        <div className="mx-auto flex h-16 w-9 flex-col items-center rounded-md border-2 border-ink bg-cream pt-2">
+          <div className="size-2 rounded-full bg-sun" />
+          <div className="mt-2 h-1 w-4 rounded-full bg-black/20" />
+          <div className="mt-1 h-1 w-3 rounded-full bg-black/10" />
+        </div>
+
+        <span className="mt-2 block font-mono text-[7px] uppercase text-mute">
+          {vendor}
+        </span>
+      </div>
+    ))}
+  </div>
+
+  <div className="mt-4 flex animate-pulse items-center justify-between px-3">
+    <div className="h-px flex-1 border-t border-dashed border-black/20" />
+    <span className="mx-2 rounded-full border border-sun/40 bg-sun/10 px-2 py-1 font-mono text-[7px] uppercase text-ink">
+      Different protocols
+    </span>
+    <div className="h-px flex-1 border-t border-dashed border-black/20" />
+  </div>
+
+  <div className="mt-4 flex justify-center">
+    <div className="rounded-lg border border-ink bg-ink px-5 py-2 text-center text-cream">
+      <span className="block font-mono text-[7px] uppercase tracking-wider text-sun">
+        One operating layer
+      </span>
+      <span className="mt-0.5 block text-[10px] font-semibold">
+        Trevia CMS
+      </span>
+    </div>
+  </div>
+</div>
+
+        <div className="mt-5">
+          <h3 className="text-xl font-semibold leading-tight text-ink">
+            Multi-vendor hardware
+          </h3>
+
+          <p className="mt-3 text-sm leading-6 text-mute">
+            Different charger vendors make networks harder to operate through one control layer.
+          </p>
+        </div>
+      </div>
+
+      {/* 03 — LIMITED REAL-TIME VISIBILITY */}
+      <div className="group relative min-h-[390px] overflow-hidden rounded-2xl border border-line bg-white p-6 transition-all duration-500 hover:-translate-y-2 hover:border-sun">
+        <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-sun transition-transform duration-500 group-hover:scale-x-100" />
+
+        <div className="flex items-center justify-between">
+          <span className="font-mono text-xs tracking-[0.2em] text-sun">
+            03
+          </span>
+          <span className="text-xs uppercase tracking-widest text-mute">
+            Visibility
+          </span>
+        </div>
+
+        {/* visual */}
+<div className="relative mt-8 h-40 overflow-hidden rounded-lg border border-line bg-cream p-3">
+  <div className="flex items-center justify-between border-b border-line pb-2">
+    <span className="font-mono text-[8px] uppercase tracking-wider text-mute">
+      Trevia CMS
+    </span>
+
+    <span className="flex items-center gap-1 font-mono text-[7px] text-mute">
+      <span className="size-1.5 animate-pulse rounded-full bg-sun" />
+      Live
+    </span>
+  </div>
+
+  <div className="mt-3 grid grid-cols-2 gap-1.5">
+    <div className="rounded border border-line bg-white p-2">
+      <span className="block text-[7px] uppercase text-mute">
+        Online
+      </span>
+      <span className="mt-1 block text-sm font-bold text-ink">
+        12
+      </span>
+    </div>
+
+    <div className="rounded border border-line bg-white p-2">
+      <span className="block text-[7px] uppercase text-mute">
+        Offline
+      </span>
+      <span className="mt-1 block text-sm font-bold text-ink">
+        3
+      </span>
+    </div>
+
+    <div className="rounded border border-line bg-white p-2">
+      <span className="block text-[7px] uppercase text-mute">
+        Faults
+      </span>
+      <span className="mt-1 block text-sm font-bold text-ink">
+        2
+      </span>
+    </div>
+
+    <div className="rounded border border-line bg-white p-2">
+      <span className="block text-[7px] uppercase text-mute">
+        Sessions
+      </span>
+      <span className="mt-1 block text-sm font-bold text-ink">
+        7
+      </span>
+    </div>
+  </div>
+
+  <div className="mt-2 flex items-center justify-between rounded border border-line bg-white px-2 py-1.5">
+    <div>
+      <span className="block font-mono text-[7px] text-mute">
+        CH-04
+      </span>
+      <span className="text-[8px] font-semibold text-ink">
+        ONLINE
+      </span>
+    </div>
+
+    <div className="text-right">
+      <span className="block text-[8px] font-semibold text-ink">
+        22 kW
+      </span>
+      <span className="text-[7px] text-mute">
+        64% utilization
+      </span>
+    </div>
+  </div>
+</div>
+
+        <div className="mt-5">
+          <h3 className="text-xl font-semibold leading-tight text-ink">
+            Limited real-time visibility
+          </h3>
+
+          <p className="mt-3 text-sm leading-6 text-mute">
+            Faults, charger status, and live sessions can be difficult to monitor across sites.
+          </p>
+        </div>
+      </div>
+
+      {/* 04 — MANUAL OPERATIONS */}
+<div className="group relative min-h-[390px] overflow-hidden rounded-2xl border border-line bg-white p-6 transition-all duration-500 hover:-translate-y-2 hover:border-sun">
+  <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-sun transition-transform duration-500 group-hover:scale-x-100" />
+
+  <div className="flex items-center justify-between">
+    <span className="font-mono text-xs tracking-[0.2em] text-sun">
+      04
+    </span>
+
+    <span className="text-xs uppercase tracking-widest text-mute">
+      Operations
+    </span>
+  </div>
+
+  {/* visual */}
+  <div className="mt-8 h-40">
+    <div className="grid h-full grid-cols-[1fr_auto_1fr] items-center gap-1.5">
+
+      {/* Manual path */}
+      <div className="min-w-0 rounded-lg border border-line bg-cream p-2">
+        <span className="font-mono text-[6px] uppercase tracking-wider text-mute">
+          Manual
+        </span>
+
+        <div className="mt-2 space-y-1">
+          <div className="rounded border border-line bg-white px-1.5 py-1.5 text-[7px] leading-tight text-ink">
+            Charger offline
           </div>
 
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="text-center text-[7px] text-mute">
+            ↓
+          </div>
 
-  {/* 01 — DISCONNECTED NETWORKS */}
-  <div className="group relative min-h-[390px] overflow-hidden rounded-2xl border border-line bg-white p-6 transition-all duration-500 hover:-translate-y-2 hover:border-sun">
-    <div className="absolute inset-x-0 top-0 h-1 bg-sun scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100" />
+          <div className="rounded border border-line bg-white px-1.5 py-1.5 text-[7px] leading-tight text-ink">
+            Call technician
+          </div>
 
-    <div className="flex items-center justify-between">
-      <span className="font-mono text-xs tracking-[0.2em] text-sun">01</span>
-      <span className="text-xs uppercase tracking-widest text-mute">Network</span>
-    </div>
+          <div className="text-center text-[7px] text-mute">
+            ↓
+          </div>
 
-    {/* visual */}
-    <div className="relative mt-10 h-36">
-      <div className="absolute left-3 top-5 size-3 rounded-full bg-sun" />
-      <div className="absolute left-24 top-1 size-3 rounded-full bg-sun" />
-      <div className="absolute right-5 top-10 size-3 rounded-full bg-sun" />
-      <div className="absolute left-14 bottom-5 size-3 rounded-full bg-sun" />
-      <div className="absolute right-20 bottom-1 size-3 rounded-full bg-sun" />
+          <div className="rounded border border-line bg-white px-1.5 py-1.5 text-[7px] leading-tight text-ink">
+            Site visit
+          </div>
+        </div>
+      </div>
 
-      <div className="absolute left-6 top-7 h-px w-16 rotate-[-18deg] bg-black/20" />
-      <div className="absolute left-28 top-7 h-px w-20 rotate-[20deg] bg-black/20" />
-      <div className="absolute left-16 bottom-7 h-px w-20 rotate-[18deg] bg-black/20" />
-      <div className="absolute right-8 top-14 h-px w-20 rotate-[-35deg] bg-black/10" />
+      {/* transition */}
+      <div className="flex items-center">
+        <ArrowRight className="size-3.5 text-sun" />
+      </div>
 
-      <div className="absolute left-1/2 top-1/2 size-20 -translate-x-1/2 -translate-y-1/2 rounded-full border border-black/10" />
-    </div>
+      {/* Trevia CMS path */}
+      <div className="rounded-lg border border-sun/40 bg-sun/10 p-2 transition-all duration-500 group-hover:border-sun">
+        <span className="font-mono text-[6px] uppercase tracking-wider text-sun">
+          Trevia CMS
+        </span>
 
-    <div className="mt-5">
-      <h3 className="text-xl font-semibold leading-tight text-ink">
-        Disconnected networks
-      </h3>
+        <div className="mt-2 space-y-1">
+          <div className="rounded border border-sun/30 bg-white px-1.5 py-1.5 text-[7px] leading-tight text-ink transition-transform duration-300 group-hover:-translate-y-0.5">
+          </div>
 
-      <p className="mt-3 text-sm leading-6 text-mute">
-        Sites run in silos with no shared operational picture.
-      </p>
+          <div className="text-center text-[7px] text-mute">
+            ↓
+          </div>
+
+          <div className="rounded border border-sun/30 bg-white px-1.5 py-1.5 text-[7px] leading-tight text-ink">
+            Remote status
+          </div>
+
+          <div className="text-center text-[7px] text-mute">
+            ↓
+          </div>
+
+          <div className="rounded border border-sun/30 bg-white px-1.5 py-1.5 text-[7px] leading-tight text-ink">
+            Remote restart
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
+  <div className="mt-5">
+    <h3 className="text-xl font-semibold leading-tight text-ink">
+      Manual operations
+    </h3>
 
-  {/* 02 — DIFFERENT HARDWARE */}
-  <div className="group relative min-h-[390px] overflow-hidden rounded-2xl border border-line bg-white p-6 transition-all duration-500 hover:-translate-y-2 hover:border-sun">
-    <div className="absolute inset-x-0 top-0 h-1 bg-sun scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100" />
-
-    <div className="flex items-center justify-between">
-      <span className="font-mono text-xs tracking-[0.2em] text-sun">02</span>
-      <span className="text-xs uppercase tracking-widest text-mute">Hardware</span>
-    </div>
-
-    {/* visual */}
-    <div className="mt-10 flex h-36 items-end justify-center gap-3">
-      <div className="h-20 w-12 rounded-lg border-2 border-ink bg-cream transition-transform duration-500 group-hover:-translate-y-3">
-        <div className="mx-auto mt-3 size-3 rounded-full bg-sun" />
-        <div className="mx-auto mt-4 h-1 w-5 rounded-full bg-black/20" />
-      </div>
-
-      <div className="h-28 w-14 rounded-lg border-2 border-ink bg-cream transition-transform duration-500 group-hover:translate-y-2">
-        <div className="mx-auto mt-4 size-3 rounded-full bg-sun" />
-        <div className="mx-auto mt-5 h-1 w-6 rounded-full bg-black/20" />
-      </div>
-
-      <div className="h-24 w-12 rounded-lg border-2 border-ink bg-cream transition-transform duration-500 group-hover:-translate-y-2">
-        <div className="mx-auto mt-3 size-3 rounded-full bg-sun" />
-        <div className="mx-auto mt-4 h-1 w-5 rounded-full bg-black/20" />
-      </div>
-
-      <div className="h-16 w-11 rounded-lg border-2 border-ink bg-cream transition-transform duration-500 group-hover:translate-y-3">
-        <div className="mx-auto mt-2.5 size-3 rounded-full bg-sun" />
-      </div>
-    </div>
-
-    <div className="mt-5">
-      <h3 className="text-xl font-semibold leading-tight text-ink">
-        Different hardware & standards
-      </h3>
-
-      <p className="mt-3 text-sm leading-6 text-mute">
-        Different vendors and protocols resist a single control plane.
-      </p>
-    </div>
+    <p className="mt-3 text-sm leading-6 text-mute">
+      Operators rely on alerts, phone calls, and site visits to resolve issues.
+    </p>
   </div>
-
-
-  {/* 03 — LIMITED VISIBILITY */}
-  <div className="group relative min-h-[390px] overflow-hidden rounded-2xl border border-line bg-white p-6 transition-all duration-500 hover:-translate-y-2 hover:border-sun">
-    <div className="absolute inset-x-0 top-0 h-1 bg-sun scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100" />
-
-    <div className="flex items-center justify-between">
-      <span className="font-mono text-xs tracking-[0.2em] text-sun">03</span>
-      <span className="text-xs uppercase tracking-widest text-mute">Visibility</span>
-    </div>
-
-    {/* visual */}
-    <div className="relative mt-10 flex h-36 items-center justify-center">
-      <div className="absolute size-32 rounded-full border border-black/10" />
-      <div className="absolute size-24 rounded-full border border-black/15" />
-      <div className="absolute size-16 rounded-full border border-sun/40" />
-
-      <div className="absolute h-px w-36 rotate-[-25deg] bg-sun/50" />
-      <div className="absolute h-px w-36 rotate-[25deg] bg-black/10" />
-
-      <div className="relative grid size-12 place-items-center rounded-full bg-sun text-ink">
-        <Eye className="size-5" />
-      </div>
-    </div>
-
-    <div className="mt-5">
-      <h3 className="text-xl font-semibold leading-tight text-ink">
-        Limited real-time visibility
-      </h3>
-
-      <p className="mt-3 text-sm leading-6 text-mute">
-        Faults and status surface late, if at all.
-      </p>
-    </div>
-  </div>
-
-
-  {/* 04 — MANUAL INTERVENTION */}
-  <div className="group relative min-h-[390px] overflow-hidden rounded-2xl border border-line bg-white p-6 transition-all duration-500 hover:-translate-y-2 hover:border-sun">
-    <div className="absolute inset-x-0 top-0 h-1 bg-sun scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100" />
-
-    <div className="flex items-center justify-between">
-      <span className="font-mono text-xs tracking-[0.2em] text-sun">04</span>
-      <span className="text-xs uppercase tracking-widest text-mute">Operations</span>
-    </div>
-
-    {/* visual */}
-    <div className="mt-10 flex h-36 items-center justify-center gap-3">
-      <div className="grid h-20 w-12 place-items-center rounded-xl border-2 border-ink bg-cream">
-        <div className="h-10 w-6 rounded border border-black/20" />
-      </div>
-
-      <ArrowRight className="size-5 text-sun" />
-
-      <div className="grid size-14 place-items-center rounded-full border-2 border-sun bg-sun/10">
-        <span className="text-xl">!</span>
-      </div>
-
-      <ArrowRight className="size-5 text-sun" />
-
-      <div className="flex h-24 w-12 flex-col items-center justify-center rounded-lg border-2 border-ink bg-cream">
-        <div className="h-9 w-5 rounded border border-black/20" />
-        <div className="mt-2 size-2 rounded-full bg-sun" />
-      </div>
-    </div>
-
-    <div className="mt-5">
-      <h3 className="text-xl font-semibold leading-tight text-ink">
-        Manual intervention
-      </h3>
-
-      <p className="mt-3 text-sm leading-6 text-mute">
-        Operators rely on phone calls and on-site visits.
-      </p>
-    </div>
-  </div>
-
-
-  {/* 05 — DIFFICULT SCALING */}
-  <div className="group relative min-h-[390px] overflow-hidden rounded-2xl border border-line bg-white p-6 transition-all duration-500 hover:-translate-y-2 hover:border-sun">
-    <div className="absolute inset-x-0 top-0 h-1 bg-sun scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100" />
-
-    <div className="flex items-center justify-between">
-      <span className="font-mono text-xs tracking-[0.2em] text-sun">05</span>
-      <span className="text-xs uppercase tracking-widest text-mute">Scale</span>
-    </div>
-
-    {/* visual */}
-    <div className="relative mt-10 h-36">
-      <div className="absolute left-2 top-3 h-14 w-24 rounded-lg border border-black/15 bg-cream" />
-      <div className="absolute left-10 top-10 h-14 w-24 rounded-lg border border-black/15 bg-cream" />
-      <div className="absolute left-20 top-17 h-14 w-24 rounded-lg border border-sun/50 bg-sun/10" />
-      <div className="absolute right-0 top-24 h-14 w-20 rounded-lg border border-black/15 bg-cream" />
-
-      <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between font-mono text-[9px] uppercase tracking-widest text-mute">
-        <span>Site 01</span>
-        <span>Site 02</span>
-        <span>Site 03</span>
-        <span>+</span>
-      </div>
-    </div>
-
-    <div className="mt-5">
-      <h3 className="text-xl font-semibold leading-tight text-ink">
-        Difficult multi-site scaling
-      </h3>
-
-      <p className="mt-3 text-sm leading-6 text-mute">
-        Every new site multiplies the operational burden.
-      </p>
-    </div>
-  </div>
-
 </div>
-        </Container>
-      </section>
+
+      {/* 05 — DIFFICULT MULTI-SITE SCALING */}
+      <div className="group relative min-h-[390px] overflow-hidden rounded-2xl border border-line bg-white p-6 transition-all duration-500 hover:-translate-y-2 hover:border-sun">
+        <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-sun transition-transform duration-500 group-hover:scale-x-100" />
+
+        <div className="flex items-center justify-between">
+          <span className="font-mono text-xs tracking-[0.2em] text-sun">
+            05
+          </span>
+          <span className="text-xs uppercase tracking-widest text-mute">
+            Scale
+          </span>
+        </div>
+
+        {/* visual */}
+<div className="relative mt-8 h-36">
+  <div className="grid grid-cols-2 gap-2">
+
+    {/* Site 01 */}
+    <div className="rounded-lg border border-line bg-cream p-2">
+      <div className="flex items-center justify-between">
+        <span className="font-mono text-[7px] uppercase text-mute">
+          Site 01
+        </span>
+        <span className="font-mono text-[7px] text-sun">
+          4
+        </span>
+      </div>
+
+      <div className="mt-2 flex gap-1">
+        {Array.from({ length: 4 }).map((_, index) => (
+          <span
+            key={index}
+            className="h-5 w-2 rounded-sm border border-ink bg-white"
+          />
+        ))}
+      </div>
+    </div>
+
+    {/* Site 02 */}
+    <div className="rounded-lg border border-line bg-cream p-2">
+      <div className="flex items-center justify-between">
+        <span className="font-mono text-[7px] uppercase text-mute">
+          Site 02
+        </span>
+        <span className="font-mono text-[7px] text-sun">
+          8
+        </span>
+      </div>
+
+      <div className="mt-2 grid grid-cols-4 gap-1">
+        {Array.from({ length: 8 }).map((_, index) => (
+          <span
+            key={index}
+            className="h-4 w-2 rounded-sm border border-ink bg-white"
+          />
+        ))}
+      </div>
+    </div>
+
+    {/* Site 03 */}
+    <div className="rounded-lg border border-line bg-cream p-2">
+      <div className="flex items-center justify-between">
+        <span className="font-mono text-[7px] uppercase text-mute">
+          Site 03
+        </span>
+        <span className="font-mono text-[7px] text-sun">
+          12
+        </span>
+      </div>
+
+      <div className="mt-2 grid grid-cols-4 gap-1">
+        {Array.from({ length: 12 }).map((_, index) => (
+          <span
+            key={index}
+            className="h-3.5 w-2 rounded-sm border border-ink bg-white"
+          />
+        ))}
+      </div>
+    </div>
+
+    {/* Site 04 */}
+    <div className="rounded-lg border border-sun/40 bg-sun/10 p-2 transition-all duration-500 group-hover:-translate-y-1">
+      <div className="flex items-center justify-between">
+        <span className="font-mono text-[7px] uppercase text-mute">
+          Site 04
+        </span>
+        <span className="font-mono text-[7px] text-sun transition-opacity duration-300 group-hover:opacity-70">
+  20
+</span>
+      </div>
+
+      <div className="mt-2 grid grid-cols-5 gap-1">
+        {Array.from({ length: 20 }).map((_, index) => (
+          <span
+            key={index}
+            className="h-3 w-2 rounded-sm border border-ink bg-white"
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div className="mt-8">
+          <h3 className="text-xl font-semibold leading-tight text-ink">
+            Difficult multi-site scaling
+          </h3>
+
+          <p className="mt-3 text-sm leading-6 text-mute">
+            Every new site and charger adds operational complexity.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </Container>
+</section>
 
 
       {/* DIGITAL INFRASTRUCTURE */}
-      <section>
-        <Container className="grid gap-10 py-20 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-          <div>
-            <SectionTitle
-              eyebrow="Digital infrastructure layer"
-              title="One infrastructure layer. Multiple sides of the network."
-              copy="Trevia sits between charging hardware and everyone who depends on it — operators, fleets, enterprises, energy companies, government, and drivers."
-            />
+<section className="border-b border-line bg-cream">
+  <Container className="py-12">
+    <div className="max-w-4xl">
+      <SectionTitle
+        eyebrow="Digital infrastructure layer"
+        title="One infrastructure layer. Every side of the network."
+        copy="Trevia sits between charging hardware and the businesses, systems, and drivers that depend on it, operators, fleets, enterprises, energy companies, government, and EV drivers."
+      />
+    </div>
 
-            <BulletList
-              items={[
-                "Centralised operational visibility across connected hardware.",
-                "A common layer for multi-site, multi-vendor environments.",
-                "Trevia CMS for operations; Trevia Drive for discovery.",
-              ]}
-            />
+    <div className="mt-12">
+      <div className="relative overflow-hidden rounded-3xl bg-ink px-6 py-10 text-cream sm:px-10 sm:py-12">
 
-            <div className="mt-8">
-              <SecondaryButton to="/platform">
-                Explore the Platform
-              </SecondaryButton>
-            </div>
+        {/* subtle grid */}
+        <div className="pointer-events-none absolute inset-0 opacity-40 dark-grid" />
+
+        <div className="relative">
+
+          {/* top label */}
+          <div className="mb-10 flex items-center justify-between">
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-sun-soft">
+              Everything converges here
+            </span>
+
+            <span className="font-mono text-[10px] text-cream/40">
+              TREVIA / LAYER
+            </span>
           </div>
 
-          <InteroperabilityDiagram />
-        </Container>
-      </section>
-
-
-      {/* TREVIA CMS */}
-      <section className="bg-ink-2 text-cream">
-        <Container className="py-20">
-          <div className="grid gap-14 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
-            <div>
-              <Eyebrow>Trevia CMS</Eyebrow>
-
-              <h2 className="mt-3 max-w-[18ch] text-4xl font-bold tracking-tight text-cream sm:text-5xl">
-                Run every charger from one platform.
-              </h2>
-
-              <p className="mt-5 max-w-[46ch] leading-relaxed text-cream/60">
-                OCPP-based connectivity, real-time monitoring, remote
-                operations, sessions, tariffs, fault visibility, multi-site
-                control, APIs, and analytics — in one operating layer.
-              </p>
-
-              <div className="mt-8">
-                <PrimaryButton to="/cms">
-                  Explore Trevia CMS
-                </PrimaryButton>
-              </div>
-            </div>
-
-            <div className="overflow-hidden rounded-2xl border border-cream/10 bg-white shadow-2xl ring-1 ring-white/5">
-              <img
-                src="/images/dashboard.png"
-                alt="Trevia CMS dashboard"
-                className="block h-auto w-full"
-              />
-            </div>
-          </div>
-
-          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-            {cmsFeatures.slice(0, 6).map(([index, title]) => (
+          {/* chargers */}
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-5">
+            {[
+              "Charger 01",
+              "Charger 02",
+              "Charger 03",
+              "Charger 04",
+              "Charger 05",
+            ].map((charger) => (
               <div
-                key={index}
-                className="rounded-xl border border-cream/10 bg-ink px-4 py-4"
+                key={charger}
+                className="rounded-xl border border-cream/10 bg-cream/[0.04] px-3 py-4 text-center transition-all duration-300 hover:-translate-y-1 hover:border-sun/50 hover:bg-sun/10"
               >
-                <span className="font-mono text-[10px] text-sun-soft">
-                  {index}
-                </span>
+                <div className="mx-auto mb-3 grid size-8 place-items-center rounded-lg border border-cream/15">
+                  <Cable className="size-4 text-sun-soft" />
+                </div>
 
-                <p className="mt-2 text-sm font-semibold text-cream">
-                  {title}
-                </p>
+                <span className="block font-mono text-[10px] text-cream/70">
+                  {charger}
+                </span>
               </div>
             ))}
           </div>
-        </Container>
-      </section>
+
+          {/* connection */}
+          <div className="my-7 flex flex-col items-center gap-2">
+            <div className="h-8 w-px bg-gradient-to-b from-sun/0 via-sun to-sun/0" />
+
+            <span className="rounded-full border border-sun/30 bg-sun/10 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-sun-soft">
+              OCPP 1.6J
+            </span>
+
+            <div className="h-8 w-px bg-gradient-to-b from-sun via-sun/50 to-sun/0" />
+          </div>
+
+          {/* Trevia central layer */}
+          <div className="relative mx-auto max-w-2xl rounded-2xl border border-sun/40 bg-sun px-6 py-7 text-center shadow-lg shadow-black/20 sm:px-10">
+            <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink/60">
+              Operating layer
+            </div>
+
+            <h3 className="mt-2 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+              TREVIA CMS
+            </h3>
+
+            <p className="mt-2 text-sm text-ink/70">
+              Common operating layer · Centralized control
+            </p>
+          </div>
+
+          {/* APIs */}
+          <div className="my-7 flex flex-col items-center gap-2">
+            <div className="h-8 w-px bg-gradient-to-b from-sun/0 via-sun to-sun/0" />
+
+            <span className="rounded-full border border-cream/15 bg-cream/[0.04] px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-cream/65">
+              APIs &amp; Integrations
+            </span>
+
+            <div className="h-8 w-px bg-gradient-to-b from-sun via-sun/50 to-sun/0" />
+          </div>
+
+          {/* ecosystem */}
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-5">
+            {[
+              "CPOs",
+              "Fleets",
+              "Enterprises",
+              "Energy",
+              "Government",
+            ].map((item) => (
+              <div
+                key={item}
+                className="rounded-xl border border-cream/10 bg-cream/[0.04] px-3 py-4 text-center transition-all duration-300 hover:-translate-y-1 hover:border-sun/50 hover:bg-sun/10"
+              >
+                <span className="text-xs font-medium text-cream/75">
+                  {item}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* driver connection */}
+          <div className="mt-8 flex justify-center">
+            <div className="rounded-full border border-cream/10 bg-cream/[0.03] px-5 py-2.5 text-center">
+              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-cream/45">
+                Driver experience · Trevia EV App
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div className="mt-8 flex justify-center">
+      <SecondaryButton to="/platform">
+        Explore the Platform
+      </SecondaryButton>
+    </div>
+  </Container>
+</section>
+
+
+      {/* TREVIA CMS */}
+<section className="bg-ink-2 text-cream">
+  <Container className="py-12">
+    <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
+      <div className="reveal-up">
+        <Eyebrow>Trevia CMS</Eyebrow>
+
+        <h2 className="mt-3 max-w-[18ch] text-4xl font-bold tracking-tight text-cream sm:text-5xl">
+          Run every charger from one platform.
+        </h2>
+
+        <p className="mt-5 max-w-[46ch] leading-relaxed text-cream/60">
+          OCPP-based connectivity, real-time monitoring, remote operations,
+          sessions, tariffs, fault visibility, multi-site control, APIs,
+          and analytics — unified in one operating layer.
+        </p>
+
+        <div className="mt-8">
+          <PrimaryButton to="/cms">
+            Explore Trevia CMS
+          </PrimaryButton>
+        </div>
+      </div>
+
+      <div className="reveal-up parallax-soft group overflow-hidden rounded-2xl border border-cream/10 bg-white shadow-2xl ring-1 ring-white/5">
+        <img
+          src="/images/dashboard.png"
+          alt="Trevia CMS dashboard"
+          className="block h-auto w-full transition-transform duration-700 group-hover:scale-[1.02]"
+        />
+      </div>
+    </div>
+
+    {/* CMS capabilities */}
+    <div className="reveal-up mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {cmsFeatures.map(([index, title, copy]) => (
+        <div
+          key={index}
+          className="group rounded-xl border border-cream/10 bg-ink p-5 transition-all duration-300 hover:-translate-y-1 hover:border-sun/40"
+        >
+          <div className="flex items-start justify-between gap-4">
+            <span className="font-mono text-[10px] text-sun-soft">
+              {index}
+            </span>
+
+            <ArrowRight className="size-3.5 text-cream/20 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-sun-soft" />
+          </div>
+
+          <h3 className="mt-5 text-sm font-semibold text-cream">
+            {title}
+          </h3>
+
+          <p className="mt-2 text-xs leading-5 text-cream/45">
+            {copy}
+          </p>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>
 
 
       {/* TREVIA DRIVE */}
       <section>
-        <Container className="grid gap-10 py-20 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+        <Container className="grid gap-10 py-14 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div>
             <SectionTitle
               eyebrow="Trevia Drive"
@@ -519,21 +949,21 @@ useEffect(() => {
             </div>
           </div>
 
-          <div className="relative flex min-h-[520px] items-center justify-center overflow-hidden rounded-2xl border border-line bg-cream p-8">
+          <div className="parallax-soft relative flex min-h-[520px] items-center justify-center overflow-hidden rounded-2xl border border-line bg-cream p-8">
             <div className="flex items-center justify-center gap-4">
               <div className="w-[190px] rotate-[-3deg] overflow-hidden rounded-[2rem] border-4 border-ink bg-white shadow-2xl">
   <img
     src="/images/drive-home.png"
-    alt="Trevia Drive home screen"
+    alt="Trevia EV App home screen"
     className="block aspect-[9/19.5] h-auto w-full object-cover"
   />
 </div>
 
-<div className="hidden w-[190px] aspect-[9/19.5] rotate-[3deg] overflow-hidden rounded-[2rem] border-4 border-ink bg-white shadow-2xl sm:block">
+<div className="hidden w-[190px] aspect-[9/19.5] rotate-[3deg] overflow-hidden rounded-[2rem] border-4 border-ink bg-white shadow-2xl transition-transform duration-500 hover:-translate-y-2 sm:block">
   <img
     src="/images/drive-explore.png"
-    alt="Trevia Drive explore screen"
-    className="block h-full w-full object-cover scale-[1.28]"
+    alt="Trevia EV App explore screen"
+    className="h-full w-full object-cover scale-[1.28]"
   />
 </div>
 
@@ -556,8 +986,7 @@ export function PlatformPage() {
       <PageIntro
         eyebrow="Platform"
         title="The connected infrastructure layer for EV charging."
-        copy="Trevia connects charging hardware, operational software, and the organizations that depend on a reliable network."
-      >
+        copy="Trevia connects charging hardware, operating software, and the businesses that run EV charging networks — through one interoperable infrastructure layer."      >
         <PrimaryButton to="/cms">
           Explore Trevia CMS
         </PrimaryButton>
@@ -567,16 +996,15 @@ export function PlatformPage() {
         </SecondaryButton>
       </PageIntro>
 
-      <Container className="grid gap-6 py-16 md:grid-cols-2">
+      <Container className="grid gap-6 py-12 md:grid-cols-2">
         <FeatureCard
           title="Trevia CMS"
           copy="The primary commercial product: one operating layer for OCPP-based connectivity, monitoring, control, sessions, tariffs, faults, and data."
         />
 
         <FeatureCard
-          title="Trevia Drive"
-          copy="The driver-facing side of the ecosystem, bringing charging discovery from multiple networks into a single experience."
-        />
+          title="Trevia EV App"
+          copy="The driver-facing side of the ecosystem, bringing charging discovery across multiple networks into one experience."        />
 
         <FeatureCard
           title="Interoperability"
@@ -590,12 +1018,11 @@ export function PlatformPage() {
       </Container>
 
       <section className="bg-cream">
-        <Container className="py-20">
+        <Container className="py-14">
           <SectionTitle
             eyebrow="How it fits"
             title="From charger connectivity to the systems around your network."
-            copy="The platform is designed to support the operating realities of CPOs, fleets, enterprises, energy companies, and public infrastructure bodies."
-          />
+            copy="Trevia connects chargers, operating software, and the businesses and systems that run EV charging networks through one interoperable infrastructure layer."          />
 
           <div className="mt-10 overflow-hidden rounded-2xl border border-cream/10 bg-ink p-4 sm:p-6">
   <TechnologyFlow />
@@ -623,7 +1050,7 @@ export function CMSPage() {
         </SecondaryButton>
       </PageIntro>
 
-      <Container className="grid gap-10 py-16 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+      <Container className="grid gap-10 py-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
         <div>
           <SectionTitle
             eyebrow="The operating layer"
@@ -644,7 +1071,7 @@ export function CMSPage() {
       </Container>
 
       <section className="border-y border-line bg-cream">
-        <Container className="py-16">
+        <Container className="py-12">
           <SectionTitle
             eyebrow="Capabilities"
             title="The operating surface behind a connected network."
@@ -663,7 +1090,7 @@ export function CMSPage() {
         </Container>
       </section>
 
-      <Container className="grid gap-10 py-16 lg:grid-cols-2">
+      <Container className="reveal-up grid gap-10 py-12 lg:grid-cols-2">
         <div className="grid gap-5">
   <div className="overflow-hidden rounded-2xl border border-line bg-white shadow-2xl">
     <img
@@ -693,11 +1120,15 @@ export function CMSPage() {
             This page keeps reliability visible without turning unverified
             figures into public claims.
           </div>
+          <p className="mt-4 text-xs leading-relaxed text-mute">
+    Specific uptime, certification, and compliance claims are subject to
+    verification and applicable configuration.
+  </p>
         </div>
       </Container>
 
       <section className="bg-cream">
-        <Container className="py-16">
+        <Container className="py-12">
           <SectionTitle
             eyebrow="Questions"
             title="Trevia CMS, clearly explained."
@@ -719,9 +1150,7 @@ export function CMSPage() {
                 },
                 {
                   question: "Does Trevia CMS handle payments?",
-                  answer:
-                    "Payment and settlement functionality is not described here until the current scope is confirmed.",
-                },
+                  answer:"Trevia CMS can integrate with payment gateways while the operator retains ownership and control of its merchant account, payment collections, and settlements.",                },
                 {
                   question: "Is there an API?",
                   answer:
@@ -746,32 +1175,32 @@ export function DrivePage() {
   return (
     <>
       <PageIntro
-        eyebrow="Trevia Drive · For EV Drivers"
-        title="One app to find charging, across networks."
-        copy="Charging infrastructure is spread across multiple operators and networks. Trevia Drive brings it into a single, unified discovery experience — built on the same infrastructure layer that runs Trevia CMS."
+      eyebrow="Trevia EV App · For EV Drivers"        
+      title="One app to find charging, across networks."
+        copy="Charging infrastructure is spread across multiple operators and networks. Trevia EV App brings it into a single, unified discovery experience — built on the same infrastructure layer that runs Trevia CMS."
       >
         <PrimaryButton to="/contact">
-          Explore Charging
-        </PrimaryButton>
+  Request Early Access
+</PrimaryButton>
 
         <SecondaryButton to="/contact">
           Download the App
         </SecondaryButton>
       </PageIntro>
 
-      <Container className="grid gap-10 py-16 lg:grid-cols-2 lg:items-center">
+      <Container className="grid gap-10 py-12 lg:grid-cols-2 lg:items-center">
         <div>
           <SectionTitle
             eyebrow="The problem"
             title="Drivers should not have to check one app per network."
-            copy="Trevia Drive aggregates charging infrastructure from multiple networks and operators into one discovery experience."
+            copy="Trevia EV App brings charging discovery from multiple networks and operators into one experience."
           />
 
           <BulletList
             items={[
               "Discover charging stations across multiple networks and operators in one place.",
               "Use a unified discovery experience instead of switching between operator-specific apps.",
-              "Stay connected to the underlying infrastructure layer that powers Trevia CMS.",
+              "Stay connected to the same infrastructure layer that powers Trevia CMS.",
             ]}
           />
         </div>
@@ -779,27 +1208,27 @@ export function DrivePage() {
 <div className="flex items-center justify-center gap-3 rounded-2xl border border-line bg-cream p-4 sm:gap-5 sm:p-8">  <div className="w-[190px] rotate-[-3deg] overflow-hidden rounded-[2rem] border-4 border-ink bg-white shadow-2xl">
     <img
       src="/images/drive-home.png"
-      alt="Trevia Drive home screen"
+      alt="Trevia EV App home screen"
       className="block w-full"
     />
   </div>
 
-  <div className="hidden w-[145px] sm:w-[190px] rotate-[3deg] overflow-hidden rounded-[2rem] border-4 border-ink bg-white shadow-2xl sm:block">
-    <img
-      src="/images/drive-explore.png"
-      alt="Trevia Drive explore screen"
-      className="block w-full"
-    />
-  </div>
+  <div className="hidden w-[190px] aspect-[9/19.5] rotate-[3deg] overflow-hidden rounded-[2rem] border-4 border-ink bg-white shadow-2xl transition-transform duration-500 hover:-translate-y-2 sm:block">
+  <img
+    src="/images/drive-explore.png"
+    alt="Trevia EV App explore screen"
+    className="h-full w-full object-cover scale-[1.28]"
+  />
+</div>
 </div>
       </Container>
 
       <section className="bg-cream">
-        <Container className="py-16">
+        <Container className="py-12">
           <SectionTitle
             eyebrow="Connected by design"
             title="The driver side and operator side share the same infrastructure layer."
-            copy="Trevia Drive and Trevia CMS are connected through the charging infrastructure layer, allowing charger data from connected networks to surface in the driver-facing experience."
+            copy="Trevia EV App and Trevia CMS are connected through the same charging infrastructure layer, allowing charger data from connected networks to surface in the driver experience."
           />
 
           <div className="mt-10">
@@ -808,19 +1237,19 @@ export function DrivePage() {
         </Container>
       </section>
 
-      <Container className="py-16">
+      <Container className="py-12">
         <SectionTitle
           eyebrow="Questions"
-          title="Trevia Drive, clearly explained."
+          title="Trevia EV App, clearly explained."
         />
 
         <div className="mt-8 max-w-3xl">
           <FAQ
             items={[
               {
-                question: "Is Trevia Drive connected to Trevia CMS?",
+                question: "Is Trevia EV App connected to Trevia CMS?",
                 answer:
-                  "Yes. Both run on Trevia's underlying charging infrastructure layer, which allows Trevia Drive to surface charger data from connected networks.",
+                  "Yes. Both run on Trevia's underlying charging infrastructure layer, which allows Trevia EV App to surface charger data from connected networks.",
               },
               {
                 question:
@@ -829,7 +1258,7 @@ export function DrivePage() {
                   "Availability is not described here until the current app store status is confirmed.",
               },
               {
-                question: "How many networks does Trevia Drive cover?",
+                question: "How many networks does Trevia EV App cover?",
                 answer:
                   "No network count is published here without verified current coverage information.",
               },
@@ -839,39 +1268,51 @@ export function DrivePage() {
       </Container>
 
       <CTASection
-        title="Explore the charging discovery experience."
-        copy="Talk with the Trevia team about the driver-facing side of connected charging infrastructure."
-      />
+  title="Find charging across networks with Trevia EV App."
+  copy="Explore the driver-facing side of connected EV charging infrastructure."
+/>
     </>
   );
 }
 
 
 const technologyFeatures = [
-  [
-    "OCPP 1.6J",
-    "The open protocol that forms the foundation of Trevia's hardware-agnostic positioning.",
-  ],
-  [
-    "WebSocket connectivity",
-    "Persistent connections enable real-time status updates rather than periodic polling.",
-  ],
-  [
-    "Authentication & heartbeats",
-    "Connected chargers authenticate and send heartbeat signals so unavailable devices can be detected.",
-  ],
-  [
-    "Commands & remote operations",
-    "Where supported by hardware, Trevia CMS can issue commands such as querying status or resetting a charger.",
-  ],
-  [
-    "Telemetry, sessions & transactions",
-    "The platform ingests status, faults, energy readings, session data, and transaction-level records.",
-  ],
-  [
-    "APIs & integrations",
-    "Charging, session, and operational data is designed to be exposed to reporting, billing, and fleet systems.",
-  ],
+  {
+    title: "OCPP 1.6J",
+    copy: "The open protocol that forms the foundation of Trevia's hardware-agnostic positioning.",
+    icon: Cable,
+    visual: "protocol",
+  },
+  {
+    title: "WebSocket connectivity",
+    copy: "Persistent connections enable real-time status updates rather than periodic polling.",
+    icon: Waypoints,
+    visual: "connection",
+  },
+  {
+    title: "Authentication & heartbeats",
+    copy: "Connected chargers authenticate and send heartbeat signals so unavailable devices can be detected.",
+    icon: Radio,
+    visual: "heartbeat",
+  },
+  {
+    title: "Commands & remote operations",
+    copy: "Where supported by hardware, Trevia CMS can issue commands such as querying status or resetting a charger.",
+    icon: SlidersHorizontal,
+    visual: "command",
+  },
+  {
+    title: "Telemetry, sessions & transactions",
+    copy: "The platform ingests status, faults, energy readings, session data, and transaction-level records.",
+    icon: Gauge,
+    visual: "telemetry",
+  },
+  {
+    title: "APIs & integrations",
+    copy: "Charging, session, and operational data is designed to be exposed to reporting, billing, and fleet systems.",
+    icon: Layers3,
+    visual: "api",
+  },
 ];
 
 
@@ -888,39 +1329,227 @@ export function TechnologyPage() {
         </PrimaryButton>
       </PageIntro>
 
-      <section className="bg-ink-2 text-cream">
-        <Container className="py-16">
-          <div className="max-w-2xl">
-            <Eyebrow>Architecture overview</Eyebrow>
+      <section className="reveal-up bg-ink-2 text-cream">
+        <Container className="py-12">
+          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+  {/* Technical explanation */}
+  <div>
+    <Eyebrow>Architecture overview</Eyebrow>
 
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-cream sm:text-4xl">
-              Chargers → OCPP → Trevia CMS → APIs and integrations.
-            </h2>
+    <h2 className="mt-3 text-3xl font-bold tracking-tight text-cream sm:text-4xl">
+      Chargers → OCPP → Trevia CMS → APIs → the systems around your network.
+    </h2>
 
-            <p className="mt-4 leading-relaxed text-cream/60">
-              Each connected charger communicates with Trevia CMS over OCPP;
-              the platform processes that data and makes it available to
-              operators directly and, where integrated, to third-party systems
-              via API.
-            </p>
-          </div>
+    <p className="mt-4 leading-relaxed text-cream/60">
+      Each connected charger communicates with Trevia CMS over OCPP;
+      the platform processes that data and makes it available to
+      operators directly and, where integrated, to third-party systems
+      via API.
+    </p>
 
-          <div className="mt-10">
-            <TechnologyFlow />
-          </div>
+    <div className="mt-7 flex flex-wrap gap-2">
+      {["Heartbeat", "Telemetry", "Sessions", "Status", "Faults"].map(
+        (item) => (
+          <span
+            key={item}
+            className="rounded-full border border-cream/10 bg-ink px-3 py-1.5 font-mono text-[9px] uppercase tracking-wider text-cream/50"
+          >
+            {item}
+          </span>
+        ),
+      )}
+    </div>
+  </div>
+
+  {/* CMS dashboard */}
+  <div className="parallax-soft group overflow-hidden rounded-2xl border border-cream/10 bg-white shadow-2xl">
+    <img
+      src="/images/dashboard.png"
+      alt="Trevia CMS dashboard"
+      className="block h-auto w-full transition-transform duration-700 group-hover:scale-[1.02]"
+    />
+  </div>
+</div>
+
+{/* Architecture flow */}
+<div className="mt-10">
+  <TechnologyFlow />
+</div>
         </Container>
       </section>
 
-      <Container className="grid gap-4 py-16 sm:grid-cols-2 lg:grid-cols-3">
-        {technologyFeatures.map(([title, copy], index) => (
-          <FeatureCard
-            key={title}
-            index={`0${index + 1}`}
-            title={title}
-            copy={copy}
-          />
-        ))}
-      </Container>
+      <Container className="grid gap-4 py-12 sm:grid-cols-2 lg:grid-cols-3">
+  {technologyFeatures.map((item, index) => {
+    const Icon = item.icon;
+
+    return (
+      <div
+        key={item.title}
+        className="group overflow-hidden rounded-xl border border-line bg-white transition-all duration-300 hover:-translate-y-1 hover:border-sun hover:shadow-xl"
+      >
+        {/* Technical visual */}
+        <div className="relative h-32 overflow-hidden border-b border-line bg-cream p-4">
+          <div className="absolute inset-0 opacity-40 dark-grid" />
+
+          <div className="relative flex h-full items-center justify-center">
+            {item.visual === "protocol" && (
+              <div className="flex items-center gap-3">
+                <div className="flex h-12 w-7 flex-col items-center justify-center rounded border-2 border-ink bg-white">
+                  <span className="size-2 rounded-full bg-sun" />
+                  <span className="mt-1 h-1 w-3 rounded-full bg-ink/20" />
+                </div>
+
+                <div className="flex flex-col items-center gap-1">
+                  <span className="h-px w-10 bg-ink/30" />
+                  <span className="rounded-full bg-sun px-2 py-1 font-mono text-[7px] font-semibold text-ink">
+                    OCPP 1.6J
+                  </span>
+                  <span className="h-px w-10 bg-ink/30" />
+                </div>
+
+                <Server className="size-7 text-ink" />
+              </div>
+            )}
+
+            {item.visual === "connection" && (
+              <div className="flex w-full max-w-[190px] items-center justify-between">
+                {[1, 2, 3, 4].map((node, i) => (
+                  <div key={node} className="flex items-center">
+                    <span
+                      className={`size-3 rounded-full border-2 border-ink bg-sun ${
+                        i === 0 ? "animate-pulse" : ""
+                      }`}
+                    />
+                    {i < 3 && (
+                      <span className="mx-1 h-px w-8 bg-ink/30">
+                        <span
+                          className="block h-full w-2 bg-sun animate-[dataFlow_2s_linear_infinite]"
+                          style={{ animationDelay: `${i * 350}ms` }}
+                        />
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {item.visual === "heartbeat" && (
+              <div className="flex items-center gap-4">
+                <Radio className="size-8 text-ink" />
+                <div className="flex items-end gap-1">
+                  {[10, 20, 13, 28, 17, 24, 12].map((height, i) => (
+                    <span
+                      key={i}
+                      className="w-1 rounded-full bg-sun animate-pulse"
+                      style={{
+                        height: `${height}px`,
+                        animationDelay: `${i * 120}ms`,
+                      }}
+                    />
+                  ))}
+                </div>
+                <span className="rounded-full border border-sun/40 bg-white px-2 py-1 font-mono text-[7px] text-ink">
+                  HEARTBEAT
+                </span>
+              </div>
+            )}
+
+            {item.visual === "command" && (
+              <div className="flex items-center gap-3">
+                <div className="rounded-lg border border-line bg-white px-3 py-2">
+                  <span className="block font-mono text-[7px] uppercase text-mute">
+                    Charger
+                  </span>
+                  <span className="mt-1 block text-[9px] font-semibold text-ink">
+                    Offline
+                  </span>
+                </div>
+
+                <ArrowRight className="size-4 text-sun" />
+
+                <div className="rounded-lg bg-ink px-3 py-2 text-center text-cream">
+                  <span className="block font-mono text-[7px] text-sun">
+                    CMS
+                  </span>
+                  <span className="mt-1 block text-[9px] font-semibold">
+                    Restart
+                  </span>
+                </div>
+              </div>
+            )}
+
+            {item.visual === "telemetry" && (
+              <div className="grid w-full max-w-[210px] grid-cols-3 gap-2">
+                {[
+                  ["22", "kW"],
+                  ["64", "%"],
+                  ["07", "sessions"],
+                ].map(([value, label]) => (
+                  <div
+                    key={label}
+                    className="rounded-lg border border-line bg-white p-2 text-center"
+                  >
+                    <span className="block text-sm font-bold text-ink">
+                      {value}
+                    </span>
+                    <span className="font-mono text-[7px] uppercase text-mute">
+                      {label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {item.visual === "api" && (
+              <div className="flex items-center gap-3">
+                <div className="space-y-1">
+                  {["Sessions", "Status", "Energy"].map((label) => (
+                    <div
+                      key={label}
+                      className="rounded border border-line bg-white px-2 py-1 font-mono text-[7px] text-mute"
+                    >
+                      {label}
+                    </div>
+                  ))}
+                </div>
+
+                <ArrowRight className="size-4 text-sun" />
+
+                <div className="rounded-lg bg-ink px-4 py-3 text-center text-cream">
+                  <span className="block font-mono text-[7px] text-sun">
+                    API
+                  </span>
+                  <span className="mt-1 block text-[9px] font-semibold">
+                    Integrations
+                  </span>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="p-5">
+          <div className="flex items-start justify-between gap-4">
+            <span className="font-mono text-[10px] text-sun">
+              0{index + 1}
+            </span>
+
+            <Icon className="size-4 text-ink/30 transition-colors duration-300 group-hover:text-sun" />
+          </div>
+
+          <h3 className="mt-5 text-base font-semibold tracking-tight text-ink">
+            {item.title}
+          </h3>
+
+          <p className="mt-2 text-sm leading-relaxed text-mute">
+            {item.copy}
+          </p>
+        </div>
+      </div>
+    );
+  })}
+</Container>
 
       <Container className="pb-16">
         <div className="rounded-xl border border-sun/40 bg-sun-pale/50 p-5 text-sm leading-relaxed text-ink-2">
@@ -1047,37 +1676,299 @@ export function SolutionsPage() {
           See the Technology
         </SecondaryButton>
       </PageIntro>
+            <section className="reveal-up border-y border-line bg-ink-2 text-cream">
+        <Container className="py-14">
+          <div className="mb-8 flex items-center justify-between">
+            <div>
+              <Eyebrow>Charging ecosystem</Eyebrow>
+              <h2 className="mt-3 text-2xl font-bold tracking-tight text-cream sm:text-3xl">
+                One layer connecting the network.
+              </h2>
+            </div>
 
-      <Container className="grid gap-4 py-16 md:grid-cols-2 lg:grid-cols-3">
-        {Object.entries(solutionContent).map(([key, item]) => (
-          <Link
-            key={key}
-            to={item.to}
-            className="group rounded-xl border border-line bg-white p-6 transition-colors hover:border-sun"
-          >
-            <Eyebrow>{item.label}</Eyebrow>
-
-            <h2 className="mt-4 text-xl font-semibold tracking-tight text-ink">
-              {item.title}
-            </h2>
-
-            <p className="mt-3 text-sm leading-relaxed text-mute">
-              {item.solution}
-            </p>
-
-            <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-pine">
-              Explore solution
-              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+            <span className="hidden font-mono text-[9px] uppercase tracking-[0.18em] text-cream/40 sm:block">
+              TREVIA / ECOSYSTEM
             </span>
-          </Link>
-        ))}
-      </Container>
+          </div>
+
+          <div className="relative overflow-hidden rounded-2xl border border-cream/10 bg-ink p-6 sm:p-8">
+            <div className="pointer-events-none absolute inset-0 dark-grid opacity-40" />
+
+            <div className="relative grid gap-8 lg:grid-cols-[1fr_1.2fr_1fr] lg:items-center">
+
+              {/* Chargers */}
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-2">
+                {["Charger 01", "Charger 02", "Charger 03", "Charger 04"].map(
+                  (charger, index) => (
+                    <div
+                      key={charger}
+                      className="group rounded-lg border border-cream/10 bg-cream/[0.04] p-3 text-center transition-all duration-300 hover:-translate-y-1 hover:border-sun/50"
+                    >
+                      <Cable className="mx-auto size-5 text-sun-soft" />
+
+                      <span className="mt-2 block font-mono text-[8px] text-cream/60">
+                        {charger}
+                      </span>
+
+                      <span className="mt-1 block text-[8px] text-cream/30">
+                        OCPP
+                      </span>
+                    </div>
+                  ),
+                )}
+              </div>
+
+              {/* Trevia */}
+              <div className="relative flex flex-col items-center">
+                <div className="hidden w-full items-center lg:flex">
+                  <div className="flow-line h-px flex-1 bg-sun/50" />
+
+                  <div className="mx-2 size-2 rounded-full bg-sun animate-pulse" />
+
+                  <div className="flow-line h-px flex-1 bg-sun/50" />
+                </div>
+
+                <div className="w-full rounded-2xl border border-sun/40 bg-sun px-6 py-7 text-center shadow-lg shadow-black/20">
+                  <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-ink/60">
+                    Operating layer
+                  </span>
+
+                  <h3 className="mt-2 text-2xl font-bold tracking-tight text-ink">
+                    TREVIA
+                  </h3>
+
+                  <p className="mt-2 text-xs text-ink/65">
+                    Connect · Monitor · Operate · Integrate
+                  </p>
+                </div>
+
+                <div className="mt-3 flex items-center gap-2">
+                  <span className="size-1.5 animate-pulse rounded-full bg-sun" />
+                  <span className="font-mono text-[8px] uppercase tracking-wider text-cream/40">
+                    Live infrastructure layer
+                  </span>
+                </div>
+              </div>
+
+              {/* Ecosystem */}
+              <div className="grid grid-cols-2 gap-2">
+                {["CPOs", "Fleets", "Enterprises", "Utilities", "Government", "Drivers"].map(
+                  (item) => (
+                    <div
+                      key={item}
+                      className="rounded-lg border border-cream/10 bg-cream/[0.04] px-3 py-3 text-center transition-all duration-300 hover:border-sun/40 hover:bg-sun/10"
+                    >
+                      <span className="font-mono text-[8px] uppercase tracking-wider text-cream/65">
+                        {item}
+                      </span>
+                    </div>
+                  ),
+                )}
+              </div>
+            </div>
+
+            {/* Mobile connection flow */}
+            <div className="relative mt-6 flex items-center justify-center gap-2 lg:hidden">
+              <span className="font-mono text-[8px] uppercase tracking-wider text-cream/35">
+                Chargers
+              </span>
+              <ArrowRight className="size-3 text-sun" />
+              <span className="font-mono text-[8px] uppercase tracking-wider text-sun">
+                Trevia
+              </span>
+              <ArrowRight className="size-3 text-sun" />
+              <span className="font-mono text-[8px] uppercase tracking-wider text-cream/35">
+                Network
+              </span>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <Container className="reveal-up grid gap-4 py-12 md:grid-cols-2 lg:grid-cols-3">
+  {Object.entries(solutionContent).map(([key, item]) => (
+    <Link
+      key={key}
+      to={item.to}
+      className="group overflow-hidden rounded-xl border border-line bg-white transition-all duration-300 hover:-translate-y-1 hover:border-sun hover:shadow-xl"
+    >
+      {/* Visual */}
+      <div className="relative h-48 overflow-hidden border-b border-line bg-cream p-4">
+
+        {key === "cpos" ? (
+          <img
+            src="/images/cpo-analytics.png"
+            alt="Trevia CPO analytics dashboard"
+            className="h-full w-full rounded-lg object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        ) : key === "fleets" ? (
+          <img
+            src="/images/fleet-overview.png"
+            alt="Trevia fleet operator dashboard"
+            className="h-full w-full rounded-lg object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        ) : key === "enterprises" ? (
+          <div className="flex h-full flex-col justify-between rounded-lg border border-line bg-white p-4">
+            <div className="flex items-center justify-between">
+              <span className="font-mono text-[8px] uppercase tracking-wider text-mute">
+                Enterprise network
+              </span>
+              <span className="size-2 rounded-full bg-sun animate-pulse" />
+            </div>
+
+            <div className="grid grid-cols-3 gap-2">
+              {["HQ", "Site 02", "Site 03"].map((site) => (
+                <div
+                  key={site}
+                  className="rounded-md border border-line bg-cream p-2 text-center"
+                >
+                  <div className="mx-auto h-7 w-3 rounded-sm border-2 border-ink bg-white" />
+                  <span className="mt-1 block font-mono text-[7px] text-mute">
+                    {site}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-2">
+              <div className="h-px flex-1 bg-line" />
+              <span className="rounded-full bg-sun px-2 py-1 font-mono text-[7px] text-ink">
+                Central management
+              </span>
+              <div className="h-px flex-1 bg-line" />
+            </div>
+          </div>
+        ) : key === "energy" ? (
+          <div className="flex h-full items-center justify-center rounded-lg border border-line bg-white p-4">
+            <div className="grid w-full grid-cols-3 items-center gap-2">
+              <div className="space-y-2">
+                {["Charging", "Sites", "Load"].map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-md border border-line bg-cream px-2 py-2 text-center font-mono text-[7px] text-mute"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col items-center gap-2">
+                <ArrowRight className="size-4 text-sun" />
+                <div className="rounded-lg bg-ink px-3 py-3 text-center text-cream">
+                  <span className="block font-mono text-[7px] text-sun">
+                    TREVIA
+                  </span>
+                  <span className="mt-1 block text-[9px] font-semibold">
+                    Data layer
+                  </span>
+                </div>
+                <ArrowRight className="size-4 rotate-180 text-sun" />
+              </div>
+
+              <div className="space-y-2">
+                {["Grid", "Energy", "Systems"].map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-md border border-line bg-cream px-2 py-2 text-center font-mono text-[7px] text-mute"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="flex h-full flex-col justify-between rounded-lg border border-line bg-white p-4">
+            <div className="flex items-center justify-between">
+              <span className="font-mono text-[8px] uppercase tracking-wider text-mute">
+                Public infrastructure
+              </span>
+              <span className="font-mono text-[7px] text-sun">
+                MULTI-SITE
+              </span>
+            </div>
+
+            <div className="grid grid-cols-4 gap-2">
+              {["01", "02", "03", "04"].map((site) => (
+                <div
+                  key={site}
+                  className="rounded-md border border-line bg-cream p-2 text-center"
+                >
+                  <div className="mx-auto h-6 w-3 rounded-sm border-2 border-ink bg-white" />
+                  <span className="mt-1 block font-mono text-[7px] text-mute">
+                    Site {site}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex items-center justify-center gap-2">
+              <span className="size-1.5 animate-pulse rounded-full bg-sun" />
+              <span className="font-mono text-[7px] uppercase tracking-wider text-mute">
+                Central oversight
+              </span>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Content */}
+      <div className="p-6">
+        <Eyebrow>{item.label}</Eyebrow>
+
+        <h2 className="mt-4 text-xl font-semibold tracking-tight text-ink">
+          {item.title}
+        </h2>
+
+        <p className="mt-3 text-sm leading-relaxed text-mute">
+          {item.solution}
+        </p>
+
+        <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-pine">
+          Explore solution
+          <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+        </span>
+      </div>
+    </Link>
+  ))}
+</Container>
 
       <CTASection />
     </>
   );
 }
 
+const solutionWorkflows = {
+  cpos: [
+    ["01", "Connect chargers", "Bring chargers across vendors into one OCPP-based operating layer."],
+    ["02", "Monitor & operate", "Track status, faults, sessions, and connected sites from one platform."],
+    ["03", "Scale operations", "Add sites and hardware without adding another operational dashboard."],
+  ],
+
+  fleets: [
+    ["01", "Connect charging", "Bring charging infrastructure across fleet sites into one connected view."],
+    ["02", "Monitor usage", "Track charger status, sessions, and operational data across sites."],
+    ["03", "Connect fleet systems", "Use charging data as a foundation for fleet workflows and integrations."],
+  ],
+
+  enterprises: [
+    ["01", "Connect sites", "Bring workplace and destination chargers into one operational layer."],
+    ["02", "Monitor infrastructure", "See charger status, faults, sessions, and site-level activity."],
+    ["03", "Manage at scale", "Operate charging infrastructure consistently across the enterprise footprint."],
+  ],
+
+  energy: [
+    ["01", "Connect infrastructure", "Connect charging assets across sites and hardware vendors through OCPP."],
+    ["02", "Build network visibility", "Bring operational and charging data into one connected view."],
+    ["03", "Integrate systems", "Expose charging data through APIs and integration pathways."],
+  ],
+
+  government: [
+    ["01", "Connect deployments", "Bring public charging infrastructure across sites into one operating layer."],
+    ["02", "Monitor operations", "Maintain visibility into charger status, faults, sessions, and deployments."],
+    ["03", "Coordinate oversight", "Support consistent operational visibility across public infrastructure."],
+  ],
+};
 
 export function SolutionDetailPage({ type }) {
   const item = solutionContent[type];
@@ -1092,7 +1983,7 @@ export function SolutionDetailPage({ type }) {
         <PrimaryButton />
       </PageIntro>
 
-      <Container className="grid gap-6 py-16 lg:grid-cols-3">
+      <Container className="grid gap-6 py-12 lg:grid-cols-3">
         <div className="rounded-xl border border-line bg-cream p-6 lg:col-span-1">
           <Eyebrow>Problem</Eyebrow>
 
@@ -1117,9 +2008,39 @@ export function SolutionDetailPage({ type }) {
           </p>
         </div>
       </Container>
+      <section className="border-y border-line bg-cream">
+  <Container className="py-12">
+    <SectionTitle
+      eyebrow="Workflow"
+      title="From connected infrastructure to everyday operations."
+      copy="A simple operating flow for connecting, monitoring, and managing charging infrastructure."
+    />
+
+    <div className="mt-9 grid gap-4 md:grid-cols-3">
+      {solutionWorkflows[type].map(([index, title, copy]) => (
+        <div
+          key={index}
+          className="rounded-xl border border-line bg-white p-6"
+        >
+          <span className="font-mono text-[10px] text-sun">
+            {index}
+          </span>
+
+          <h3 className="mt-5 text-lg font-semibold tracking-tight text-ink">
+            {title}
+          </h3>
+
+          <p className="mt-2 text-sm leading-relaxed text-mute">
+            {copy}
+          </p>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>
 
       <section className="bg-ink-2 text-cream">
-        <Container className="grid gap-10 py-16 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+        <Container className="grid gap-10 py-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <div>
             <Eyebrow>What to run centrally</Eyebrow>
 
@@ -1176,28 +2097,170 @@ export function AboutPage() {
         </SecondaryButton>
       </PageIntro>
 
-      <Container className="grid gap-10 py-16 lg:grid-cols-2">
-        <div>
-          <SectionTitle
-            eyebrow="What Trevia is"
-            title="Not a charger manufacturer. Not a closed network."
-            copy="Trevia is not a hardware vendor, not a charge point operator, and not a single-sided consumer app. Its role is to provide the digital infrastructure between chargers, operators, fleets, enterprises, and drivers."
-          />
+      <section className="border-y border-line bg-cream">
+  <Container className="py-12 lg:py-14">
+    <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
 
-          <BulletList
-            items={[
-              "Digital infrastructure for EV charging.",
-              "Hardware-agnostic and vendor-neutral by design.",
-              "Trevia CMS for operations and Trevia Drive for charging discovery.",
-            ]}
-          />
+      {/* LEFT — explanation */}
+      <div>
+        <Eyebrow>What Trevia is</Eyebrow>
+
+        <h2 className="mt-3 max-w-[18ch] text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+          Not a charger manufacturer. Not a closed network.
+        </h2>
+
+        <p className="mt-5 max-w-[46ch] leading-relaxed text-mute">
+          Trevia is not a hardware vendor, not a charge point operator,
+          and not a single-sided consumer app. Its role is to provide
+          the digital infrastructure between chargers, operators,
+          fleets, enterprises, and drivers.
+        </p>
+
+        <div className="mt-7 space-y-3">
+          {[
+            "Digital infrastructure for EV charging.",
+            "Hardware-agnostic and vendor-neutral by design.",
+            "Trevia CMS for operations and Trevia EV App for charging discovery.",
+          ].map((item) => (
+            <div
+              key={item}
+              className="flex items-start gap-3 text-sm text-ink-2"
+            >
+              <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-sun" />
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* LARGE ECOSYSTEM VISUAL */}
+      <div className="relative min-h-[500px] overflow-hidden rounded-2xl border border-cream/10 bg-ink p-6 text-cream sm:p-8">
+
+        <div className="absolute inset-0 opacity-40 dark-grid" />
+
+        <div className="relative flex min-h-[440px] items-center justify-center">
+
+          {/* connection ring */}
+          <div className="absolute size-64 rounded-full border border-sun/20 animate-pulse" />
+          <div className="absolute size-80 rounded-full border border-cream/5" />
+
+          {/* charger nodes */}
+          <div className="absolute left-2 top-6 rounded-lg border border-cream/10 bg-ink-2 px-3 py-2">
+            <span className="font-mono text-[8px] text-cream/50">
+              CHARGER 01
+            </span>
+          </div>
+
+          <div className="absolute right-2 top-12 rounded-lg border border-cream/10 bg-ink-2 px-3 py-2">
+            <span className="font-mono text-[8px] text-cream/50">
+              CHARGER 02
+            </span>
+          </div>
+
+          <div className="absolute bottom-16 left-4 rounded-lg border border-cream/10 bg-ink-2 px-3 py-2">
+            <span className="font-mono text-[8px] text-cream/50">
+              CHARGER 03
+            </span>
+          </div>
+
+          <div className="absolute bottom-8 right-4 rounded-lg border border-cream/10 bg-ink-2 px-3 py-2">
+            <span className="font-mono text-[8px] text-cream/50">
+              CHARGER 04
+            </span>
+          </div>
+
+          {/* ecosystem nodes */}
+          <div className="absolute left-1/2 top-2 -translate-x-1/2 rounded-lg border border-sun/30 bg-ink-2 px-4 py-2">
+            <span className="text-[9px] font-semibold text-cream">
+              CPOs
+            </span>
+          </div>
+
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 rounded-lg border border-sun/30 bg-ink-2 px-4 py-2">
+            <span className="text-[9px] font-semibold text-cream">
+              Drivers
+            </span>
+          </div>
+
+          <div className="absolute left-2 top-1/2 -translate-y-1/2 rounded-lg border border-sun/30 bg-ink-2 px-4 py-2">
+            <span className="text-[9px] font-semibold text-cream">
+              Fleets
+            </span>
+          </div>
+
+          <div className="absolute right-2 top-1/2 -translate-y-1/2 rounded-lg border border-sun/30 bg-ink-2 px-4 py-2">
+            <span className="text-[9px] font-semibold text-cream">
+              Enterprises
+            </span>
+          </div>
+
+          <div className="absolute left-16 top-20 rounded-lg border border-sun/20 bg-ink-2 px-3 py-2">
+            <span className="text-[8px] text-cream/60">
+              Energy
+            </span>
+          </div>
+
+          <div className="absolute bottom-20 right-16 rounded-lg border border-sun/20 bg-ink-2 px-3 py-2">
+            <span className="text-[8px] text-cream/60">
+              Government
+            </span>
+          </div>
+
+          {/* connection lines */}
+          <div className="absolute left-[15%] right-[15%] top-1/2 h-px bg-sun/20" />
+          <div className="absolute bottom-[15%] left-1/2 top-[15%] w-px bg-sun/20" />
+
+          {/* animated data packets */}
+          <span className="absolute left-[15%] top-1/2 size-1.5 -translate-y-1/2 rounded-full bg-sun shadow-[0_0_10px_rgba(0,161,155,0.8)] animate-[dataFlow_2.5s_linear_infinite]" />
+
+          {/* central operating layer */}
+          <div className="relative z-10 flex size-40 flex-col items-center justify-center rounded-full border-2 border-sun bg-sun text-center shadow-[0_0_60px_rgba(0,161,155,0.2)] transition-transform duration-500 hover:scale-105">
+
+            <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-ink/55">
+              Digital infrastructure
+            </span>
+
+            <span className="mt-2 text-2xl font-bold tracking-tight text-ink">
+              TREVIA
+            </span>
+
+            <span className="mt-2 text-[8px] text-ink/60">
+              Operating layer
+            </span>
+
+            <span className="mt-2 font-mono text-[7px] text-ink/50">
+              OCPP · DATA · APIs
+            </span>
+          </div>
+
         </div>
 
-        <InteroperabilityDiagram />
-      </Container>
+        {/* bottom transformation */}
+        <div className="relative flex items-center justify-center gap-3 border-t border-cream/10 pt-4">
+          <span className="font-mono text-[8px] uppercase tracking-wider text-cream/30">
+            Fragmented
+          </span>
 
-      <section className="bg-cream">
-        <Container className="grid gap-10 py-20 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+          <span className="text-sun">→</span>
+
+          <span className="font-mono text-[8px] uppercase tracking-wider text-sun">
+            Connected
+          </span>
+
+          <span className="text-sun">→</span>
+
+          <span className="font-mono text-[8px] uppercase tracking-wider text-cream">
+            Operable
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </Container>
+</section>
+
+      <section className="reveal-up bg-cream">
+        <Container className="grid gap-10 py-14 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <div>
             <Eyebrow>Vision</Eyebrow>
 
@@ -1211,6 +2274,158 @@ export function AboutPage() {
             Trevia's vision is to extend the same interoperability model into
             adjacent energy-mobility infrastructure as the market matures.
           </p>
+        </Container>
+      </section>
+      <section className="reveal-up bg-ink-2 text-cream">
+  <Container className="py-12">
+    <SectionTitle
+      eyebrow="Journey"
+      title="Building the infrastructure layer one connection at a time."
+      copy="Trevia's journey is focused on making charging infrastructure more connected, interoperable, and easier to operate."
+    />
+
+    <div className="relative mt-10">
+
+  {/* Timeline line */}
+  <div className="absolute left-0 right-0 top-5 hidden h-px bg-cream/10 md:block" />
+
+  <div className="grid gap-8 md:grid-cols-3 md:gap-6">
+
+    {[
+      [
+        "01",
+        "Connect",
+        "Build the infrastructure layer between chargers and the systems around them.",
+      ],
+      [
+        "02",
+        "Operate",
+        "Give operators a clearer way to monitor and manage connected charging infrastructure.",
+      ],
+      [
+        "03",
+        "Scale",
+        "Extend interoperable charging infrastructure across more sites, networks, and use cases.",
+      ],
+    ].map(([index, title, copy]) => (
+      <div key={index} className="group relative">
+
+        {/* Timeline node */}
+        <div className="relative z-10 flex size-10 items-center justify-center rounded-full border border-sun/50 bg-ink">
+          <span className="font-mono text-[9px] font-semibold text-sun">
+            {index}
+          </span>
+        </div>
+
+        <div className="mt-5 border-l border-cream/10 pl-5 md:border-l-0 md:pl-0">
+          <h3 className="text-xl font-semibold tracking-tight text-cream transition-colors duration-300 group-hover:text-sun">
+            {title}
+          </h3>
+
+          <p className="mt-2 max-w-sm text-sm leading-relaxed text-cream/50">
+            {copy}
+          </p>
+        </div>
+
+      </div>
+    ))}
+
+  </div>
+</div>
+  </Container>
+</section>
+
+            <section className="border-t border-line bg-ink-2 text-cream">
+        <Container className="py-14 sm:py-12">
+          <div className="mb-8 flex items-end justify-between gap-6">
+            <div>
+              <Eyebrow>Operating layer</Eyebrow>
+              <h2 className="mt-3 max-w-2xl text-3xl font-bold tracking-tight text-cream sm:text-4xl">
+                One connected system behind the charging ecosystem.
+              </h2>
+            </div>
+
+            <span className="hidden font-mono text-[9px] uppercase tracking-[0.18em] text-cream/30 sm:block">
+              TREVIA / INFRASTRUCTURE
+            </span>
+          </div>
+
+          <div className="relative overflow-hidden rounded-2xl border border-cream/10 bg-ink p-6 sm:p-10">
+            <div className="pointer-events-none absolute inset-0 dark-grid opacity-40" />
+
+            <div className="relative grid gap-6 lg:grid-cols-[1fr_1.2fr_1fr] lg:items-center">
+
+              {/* Infrastructure */}
+              <div className="grid grid-cols-2 gap-2">
+                {["Chargers", "Sites", "Networks", "Hardware"].map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-lg border border-cream/10 bg-cream/[0.04] p-4 text-center"
+                  >
+                    <Cable className="mx-auto size-5 text-sun-soft" />
+                    <span className="mt-2 block font-mono text-[8px] uppercase tracking-wider text-cream/50">
+                      {item}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Trevia */}
+              <div className="relative flex justify-center">
+                <div className="absolute left-0 right-0 top-1/2 hidden h-px bg-sun/30 lg:block" />
+
+                <div className="relative z-10 w-full max-w-sm rounded-2xl border border-sun/40 bg-sun p-7 text-center shadow-[0_0_50px_rgba(0,161,155,0.16)]">
+                  <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-ink/55">
+                    Digital infrastructure
+                  </span>
+
+                  <div className="mt-2 text-3xl font-bold tracking-tight text-ink">
+                    TREVIA
+                  </div>
+
+                  <div className="mt-5 grid grid-cols-4 gap-2">
+                    {["OCPP", "Monitor", "Operate", "API"].map((item) => (
+                      <div
+                        key={item}
+                        className="rounded-md bg-ink/10 px-2 py-2 font-mono text-[7px] text-ink/70"
+                      >
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-4 flex items-center justify-center gap-2">
+                    <span className="size-1.5 animate-pulse rounded-full bg-ink" />
+                    <span className="font-mono text-[8px] uppercase tracking-wider text-ink/55">
+                      Connected
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Ecosystem */}
+              <div className="grid grid-cols-2 gap-2">
+                {["CPOs", "Fleets", "Enterprises", "Utilities", "Government", "Drivers"].map(
+                  (item) => (
+                    <div
+                      key={item}
+                      className="rounded-lg border border-sun/15 bg-sun/[0.04] px-3 py-3 text-center transition-all duration-300 hover:border-sun/50 hover:bg-sun/10"
+                    >
+                      <span className="font-mono text-[8px] uppercase tracking-wider text-cream/55">
+                        {item}
+                      </span>
+                    </div>
+                  ),
+                )}
+              </div>
+            </div>
+
+            <div className="relative mt-8 border-t border-cream/10 pt-5 text-center">
+              <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-cream/30">
+                Hardware → Connectivity → Operating layer → Ecosystem
+              </span>
+            </div>
+          </div>
         </Container>
       </section>
 
@@ -1229,7 +2444,7 @@ export function TractionPage() {
         copy="Trevia is an early-stage company building and validating Trevia CMS for the operational needs of EV charging infrastructure."
       />
 
-      <Container className="py-16">
+      <Container className="py-12">
         <div className="grid gap-4 md:grid-cols-3">
           <FeatureCard
             index="01"
@@ -1283,7 +2498,7 @@ export function ContactPage() {
       />
 
       {submitted ? (
-        <Container className="py-20">
+        <Container className="py-14">
           <div className="mx-auto max-w-xl rounded-2xl border border-sun/50 bg-sun-pale/60 p-8 text-center">
             <div className="mx-auto grid size-12 place-items-center rounded-full bg-sun text-ink">
               <ArrowRight className="size-5" />
@@ -1309,7 +2524,7 @@ export function ContactPage() {
           </div>
         </Container>
       ) : (
-        <Container className="grid gap-10 py-16 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+        <Container className="grid gap-10 py-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div>
             <SectionTitle
               eyebrow="Start a conversation"
@@ -1434,7 +2649,7 @@ export function SimpleInfoPage({ title, eyebrow, copy }) {
         copy={copy}
       />
 
-      <Container className="max-w-3xl py-16">
+      <Container className="max-w-3xl py-12">
         <div className="rounded-xl border border-line bg-white p-6 text-sm leading-relaxed text-mute">
           <p>
             This page is included as enterprise-site scaffolding. Trevia will

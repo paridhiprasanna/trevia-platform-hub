@@ -210,6 +210,30 @@
   to { stroke-dashoffset: -200; }
 }
 
+@keyframes flow-dash {
+  to { stroke-dashoffset: -200; }
+}
+
+@keyframes dataFlow {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
 @keyframes reveal-up {
   from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
@@ -229,5 +253,54 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
+  }
+}
+
+.parallax-soft {
+  transform: translateY(0);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.parallax-soft:hover {
+  transform: translateY(-4px);
+}
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes softFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.reveal-soft {
+  animation: revealUp 0.7s ease-out both;
+}
+
+.parallax-soft {
+  animation: softFloat 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-soft,
+  .parallax-soft,
+  .animate-pulse,
+  .animate-ping {
+    animation: none !important;
   }
 }

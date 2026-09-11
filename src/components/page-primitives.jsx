@@ -87,7 +87,7 @@ export function CTASection({
 }) {
   return (
     <section className="bg-ink-2 text-cream">
-      <Container className="flex flex-col gap-7 py-16 sm:flex-row sm:items-center sm:justify-between sm:py-20">
+      <Container className="flex flex-col gap-7 py-16 sm:flex-row sm:items-center sm:justify-between sm:py-16">
         <div>
           <Eyebrow>Next step</Eyebrow>
 

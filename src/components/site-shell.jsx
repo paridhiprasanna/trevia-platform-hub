@@ -5,18 +5,17 @@ import { useState } from "react";
 const navItems = [
   { label: "Platform", to: "/platform" },
   { label: "Trevia CMS", to: "/cms" },
-  { label: "Trevia Drive", to: "/drive" },
+  { label: "Trevia EV App", to: "/drive" },
   { label: "Solutions", to: "/solutions" },
   { label: "Technology", to: "/technology" },
   { label: "Company", to: "/about" },
 ];
-
 const footerGroups = [
   {
     title: "Product",
     links: [
       { label: "Trevia CMS", to: "/cms" },
-      { label: "Trevia Drive", to: "/drive" },
+      { label: "Trevia EV App", to: "/drive" },
       { label: "Request a Demo", to: "/contact" },
     ],
   },
@@ -41,7 +40,7 @@ const footerGroups = [
     title: "Company",
     links: [
       { label: "About", to: "/about" },
-      { label: "Traction / Journey", to: "/traction" },
+      { label: "Journey", to: "/traction" },
       { label: "Contact", to: "/contact" },
     ],
   },
@@ -99,7 +98,7 @@ export function SiteShell({ children }) {
               to="/contact"
               className="inline-flex items-center gap-2 rounded-md bg-ink px-3.5 py-2 text-sm font-medium text-cream transition-colors hover:bg-ink-2"
             >
-              Book a demo
+              Book a Demo
               <ArrowRight className="size-3.5" />
             </Link>
 
@@ -159,7 +158,7 @@ export function SiteShell({ children }) {
             </Link>
 
             <p className="mt-4 max-w-[30ch] text-sm leading-relaxed text-mute">
-              The operating layer for your charging network.
+              The operating layer for EV charging.
             </p>
           </div>
 
