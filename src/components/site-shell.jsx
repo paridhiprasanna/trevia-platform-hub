@@ -62,17 +62,13 @@ export function SiteShell({ children }) {
 
       <header className="sticky top-0 z-40 border-b border-line bg-background/90 backdrop-blur-sm">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-          <Link
-          to="/"
-          className="flex items-center"
-          onClick={() => setOpen(false)}
-          >
-            <img
-            src="/trevia-logo.png"
-            alt="Trevia EV"
-            className="h-9 w-auto"
-            />
-            </Link>
+          <Link to="/" className="shrink-0">
+  <img
+  src="/images/trevia-wordmark-black-transparent.webp"
+  alt="Trevia"
+  className="h-10 w-auto"
+/>
+</Link>
 
           <nav className="hidden items-center gap-7 text-sm font-medium text-mute lg:flex">
             {navItems.map((item) => (
@@ -151,10 +147,10 @@ export function SiteShell({ children }) {
           <div>
             <Link to="/" className="flex items-center">
             <img
-            src="/trevia-logo.png"
-            alt="Trevia EV"
-            className="h-9 w-auto"
-            />
+  src="/images/trevia-wordmark-black-transparent.webp"
+  alt="Trevia"
+  className="h-10 w-auto"
+/>
             </Link>
 
             <p className="mt-4 max-w-[30ch] text-sm leading-relaxed text-mute">
