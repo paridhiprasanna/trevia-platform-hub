@@ -128,10 +128,6 @@ useEffect(() => {
   <div className="flex h-screen items-center justify-center px-6">
     <div className="w-full max-w-6xl text-center">
 
-      <div className="text-2xl font-bold tracking-[-0.03em] text-ink sm:text-3xl">
-        Trevia EV
-      </div>
-
       <h1 className="mt-6 text-5xl font-bold tracking-[-0.04em] text-ink sm:text-7xl lg:text-8xl">
         The operating layer
         <br />
@@ -932,14 +928,14 @@ useEffect(() => {
 </section>
 
 
-      {/* TREVIA DRIVE */}
+      {/* TREVIA EV App */}
       <section>
         <Container className="grid gap-10 py-14 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div>
             <SectionTitle
-              eyebrow="Trevia Drive"
+              eyebrow="Trevia EV App"
               title="One app to find charging, across networks."
-              copy="Trevia Drive extends the same connected infrastructure to EV drivers, bringing charging discovery from multiple networks into a single experience."
+              copy="Trevia EV App extends the same connected infrastructure to EV drivers, bringing charging discovery from multiple networks into a single experience."
             />
 
             <div className="mt-8">
