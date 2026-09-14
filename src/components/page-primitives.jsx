@@ -7,7 +7,7 @@ export function Container({ children, className = "" }) {
 
 export function Eyebrow({ children }) {
   return (
-    <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-sun">
+    <p className="font-mono text-lg uppercase tracking-[0.18em] text-sun">
       {children}
     </p>
   );
@@ -21,14 +21,14 @@ export function PageIntro({
   dark = false,
 }) {
   return (
-    <section className={dark ? "bg-ink-2 text-cream" : ""}>
+    <section className={dark ? "bg-ink-2 text-white" : ""}>
       <Container className="grid gap-10 py-16 lg:grid-cols-[1fr_0.85fr] lg:items-end lg:py-24">
         <div>
           <Eyebrow>{eyebrow}</Eyebrow>
 
           <h1
             className={`mt-5 max-w-[18ch] text-balance text-4xl font-extrabold leading-[1.04] tracking-tight sm:text-6xl ${
-              dark ? "text-cream" : "text-ink"
+              dark ? "text-white" : "text-ink"
             }`}
           >
             {title}
@@ -36,7 +36,7 @@ export function PageIntro({
 
           <p
             className={`mt-6 max-w-[52ch] text-lg leading-relaxed ${
-              dark ? "text-cream/65" : "text-mute"
+              dark ? "text-white" : "text-mute"
             }`}
           >
             {copy}
@@ -73,7 +73,7 @@ export function SecondaryButton({
   return (
     <Link
       to={to}
-      className="inline-flex items-center gap-2 rounded-md border border-line bg-white/60 px-5 py-3 text-sm font-medium text-ink transition-colors hover:border-ink/30"
+      className="inline-flex items-center gap-2 rounded-md border border-line bg-sun px-5 py-3 text-sm font-medium text-ink transition-colors hover:border-ink/30"
     >
       {children}
       <ArrowRight className="size-4" />
@@ -86,8 +86,8 @@ export function CTASection({
   copy = "Talk with the Trevia team about the operating layer behind your sites, hardware, and workflows.",
 }) {
   return (
-    <section className="bg-ink-2 text-cream">
-      <Container className="flex flex-col gap-7 py-16 sm:flex-row sm:items-center sm:justify-between sm:py-16">
+    <section className="bg-ink-2 text-white">
+      <Container className="flex flex-col gap-7 py-16 sm:flex-row sm:items-center sm:justify-between sm:py-20">
         <div>
           <Eyebrow>Next step</Eyebrow>
 
@@ -95,7 +95,7 @@ export function CTASection({
             {title}
           </h2>
 
-          <p className="mt-3 max-w-[48ch] leading-relaxed text-cream/60">
+          <p className="mt-3 max-w-[48ch] leading-relaxed text-white">
             {copy}
           </p>
         </div>
@@ -111,12 +111,12 @@ export function SectionTitle({ eyebrow, title, copy }) {
     <div className="max-w-2xl">
       <Eyebrow>{eyebrow}</Eyebrow>
 
-      <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink text-balance sm:text-4xl">
+      <h2 className="mt-3 text-3xl font-bold tracking-tight text-white text-balance sm:text-4xl">
         {title}
       </h2>
 
       {copy && (
-        <p className="mt-4 text-base leading-relaxed text-mute">{copy}</p>
+        <p className="mt-4 text-base leading-relaxed text-white">{copy}</p>
       )}
     </div>
   );
@@ -164,7 +164,7 @@ export function BulletList({ items }) {
   return (
     <ul className="mt-6 space-y-3">
       {items.map((item) => (
-        <li key={item} className="flex gap-3 text-sm leading-relaxed text-ink-2">
+        <li key={item} className="flex gap-3 text-sm leading-relaxed text-white">
           <Check className="mt-0.5 size-4 shrink-0 text-sun" />
           {item}
         </li>
@@ -178,8 +178,12 @@ export function FAQ({ items }) {
     <div className="divide-y divide-line rounded-xl border border-line bg-white">
       {items.map((item) => (
         <details key={item.question} className="group p-5">
-          <summary className="cursor-pointer list-none pr-8 text-sm font-semibold text-ink marker:hidden">
-            {item.question}
+          <summary className="flex cursor-pointer list-none items-center justify-between text-sm font-semibold text-ink marker:hidden">
+            <span>{item.question}</span>
+
+            <span className="ml-4 shrink-0 text-xl font-normal transition-transform duration-300 group-open:rotate-180">
+              ⌄
+            </span>
           </summary>
 
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-mute">

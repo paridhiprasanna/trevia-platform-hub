@@ -13,7 +13,7 @@ export function ArchitectureDiagram({ compact = false }) {
         <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-sun-soft">
           Network architecture
         </span>
-        <span className="font-mono text-[10px] text-cream/45">
+        <span className="font-mono text-[10px] text-white">
           TREVIA / FLOW
         </span>
       </div>
@@ -26,7 +26,7 @@ export function ArchitectureDiagram({ compact = false }) {
               key={charger}
               className="rounded-lg bg-ink px-2 py-3 text-center ring-1 ring-cream/10"
             >
-              <span className="block font-mono text-[10px] text-cream/85">
+              <span className="block font-mono text-[10px] text-white">
                 CH-0{index + 1}
               </span>
               <span className="mt-0.5 block text-[10px] text-cream/40">
@@ -37,7 +37,7 @@ export function ArchitectureDiagram({ compact = false }) {
         </div>
 
         {/* OCPP */}
-        <div className="flex items-center justify-center gap-2 text-sun-soft">
+        <div className="flex items-center justify-center gap-2 text-white">
           <ArrowDown className="size-4" />
           <span className="font-mono text-[10px] uppercase tracking-[0.14em]">
             OCPP 1.6J · WebSocket
@@ -45,12 +45,12 @@ export function ArchitectureDiagram({ compact = false }) {
         </div>
 
         {/* Trevia CMS */}
-        <div className="rounded-lg bg-sun py-3.5 text-center text-sm font-semibold tracking-tight text-ink ring-1 ring-cream/40">
+        <div className="rounded-lg bg-sun py-3.5 text-center text-sm font-semibold tracking-tight text-white">
           Trevia CMS — Operating Layer
         </div>
 
         {/* APIs */}
-        <div className="flex items-center justify-center gap-2 text-sun-soft">
+        <div className="flex items-center justify-center gap-2 text-white">
           <ArrowDown className="size-4" />
           <span className="font-mono text-[10px] uppercase tracking-[0.14em]">
             APIs & Integrations
@@ -63,7 +63,7 @@ export function ArchitectureDiagram({ compact = false }) {
             (item) => (
               <div
                 key={item}
-                className="rounded-lg bg-ink px-2 py-3 text-center text-[11px] text-cream/75 ring-1 ring-cream/10"
+                className="rounded-lg bg-ink px-2 py-3 text-center text-[11px] text-white"
               >
                 {item}
               </div>
@@ -75,37 +75,37 @@ export function ArchitectureDiagram({ compact = false }) {
       {/* Technical metadata */}
       <div className="mt-6 grid grid-cols-2 gap-3 border-t border-cream/10 pt-5 sm:grid-cols-4">
         <div>
-          <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-cream/40">
+          <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-white">
             Protocol
           </span>
-          <p className="mt-1 text-xs font-semibold text-cream/80">
+          <p className="mt-1 text-xs font-semibold text-white">
             OCPP 1.6J
           </p>
         </div>
 
         <div>
-          <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-cream/40">
+          <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-white">
             Transport
           </span>
-          <p className="mt-1 text-xs font-semibold text-cream/80">
+          <p className="mt-1 text-xs font-semibold text-white">
             WebSocket
           </p>
         </div>
 
         <div>
-          <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-cream/40">
+          <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-white">
             Scope
           </span>
-          <p className="mt-1 text-xs font-semibold text-cream/80">
+          <p className="mt-1 text-xs font-semibold text-white">
             Multi-site
           </p>
         </div>
 
         <div>
-          <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-cream/40">
+          <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-white">
             Integration
           </span>
-          <p className="mt-1 text-xs font-semibold text-cream/80">
+          <p className="mt-1 text-xs font-semibold text-white">
             APIs
           </p>
         </div>

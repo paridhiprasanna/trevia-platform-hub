@@ -512,7 +512,7 @@ Do NOT turn unverified information into a public claim.
 
 14. REQUEST A DEMO PAGE
 
-Create a professional B2B contact/demo page.
+Create a professional B2B contact/Demo page.
 
 Include fields such as:
 

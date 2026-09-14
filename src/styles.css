@@ -304,3 +304,754 @@
     animation: none !important;
   }
 }
+
+.book-demo-button {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.request-demo-link {
+  color: #000000 !important;
+}
+
+/* =========================================================
+   COMPANY PAGE — TREVIA NETWORK CORE
+   ========================================================= */
+
+.company-grid {
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 52px 52px;
+}
+
+
+/* Network connection lines */
+
+.company-network-line {
+  stroke: rgba(0, 161, 155, 0.32);
+  stroke-width: 1;
+  stroke-dasharray: 5 10;
+  animation: companyNetworkFlow 5s linear infinite;
+}
+
+@keyframes companyNetworkFlow {
+  to {
+    stroke-dashoffset: -120;
+  }
+}
+
+
+/* Ecosystem nodes */
+
+.company-node {
+  z-index: 10;
+
+  min-width: 125px;
+
+  padding: 14px 16px;
+
+ border: 1px solid rgba(0, 161, 155, 0.28);
+  border-radius: 12px;
+
+  background: rgba(0, 0, 0, 0.78);
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.02),
+    0 8px 25px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 300ms ease,
+    border-color 300ms ease,
+    background 300ms ease;
+}
+
+.company-node:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(0, 161, 155, 0.75);
+
+  background: rgba(0, 161, 155, 0.08);
+}
+
+
+/* Data particles */
+
+.company-data-point {
+  position: absolute;
+
+  z-index: 8;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 9999px;
+
+  background: #00A19B;
+
+  box-shadow:
+    0 0 8px rgba(0, 161, 155, 0.9),
+    0 0 18px rgba(0, 161, 155, 0.5);
+
+  animation: companyDataPulse 2.8s ease-in-out infinite;
+}
+
+.company-data-point:nth-of-type(2) {
+  animation-delay: 0.4s;
+}
+
+.company-data-point:nth-of-type(3) {
+  animation-delay: 0.8s;
+}
+
+.company-data-point:nth-of-type(4) {
+  animation-delay: 1.2s;
+}
+
+.company-data-point:nth-of-type(5) {
+  animation-delay: 1.6s;
+}
+
+.company-data-point:nth-of-type(6) {
+  animation-delay: 2s;
+}
+
+@keyframes companyDataPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.7);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+
+/* Mobile */
+
+@media (max-width: 640px) {
+
+  .company-node {
+    min-width: 78px;
+    padding: 8px 9px;
+  }
+
+  .company-node span {
+    font-size: 8px;
+  }
+
+}
+
+/* =========================================================
+   JOURNEY TIMELINE
+   ========================================================= */
+
+.journey-number {
+  display: grid;
+  width: 104px;
+  height: 104px;
+  place-items: center;
+
+  border: 1px solid rgba(0, 161, 155, 0.35);
+  border-radius: 9999px;
+
+  background: #000000;
+
+  font-family: monospace;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  box-shadow:
+    0 0 0 8px rgba(0, 161, 155, 0.025),
+    0 0 35px rgba(0, 161, 155, 0.08);
+
+  transition:
+    transform 300ms ease,
+    border-color 300ms ease,
+    color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.journey-number-active {
+  border-color: rgba(0, 161, 155, 0.85);
+
+  color: #00A19B;
+
+  box-shadow:
+    0 0 0 8px rgba(0, 161, 155, 0.035),
+    0 0 45px rgba(0, 161, 155, 0.22);
+}
+
+.journey-number:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(0, 161, 155, 0.9);
+
+  color: #00A19B;
+
+  box-shadow:
+    0 0 0 8px rgba(0, 161, 155, 0.04),
+    0 0 45px rgba(0, 161, 155, 0.25);
+}
+
+
+/* Mobile */
+
+@media (max-width: 1023px) {
+  .journey-number {
+    width: 76px;
+    height: 76px;
+
+    font-size: 16px;
+  }
+}
+
+/* =========================================
+   CMS CAPABILITY CAROUSEL
+   ========================================= */
+
+.cms-capability-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 40px 0 10px;
+}
+
+
+/* =========================================
+   MOVING SLIDES
+   ========================================= */
+
+.cms-capability-track {
+  display: flex;
+  width: max-content;
+
+  animation:
+    cms-capability-scroll 54s linear infinite;
+}
+
+
+/* Pause when user hovers */
+.cms-capability-carousel:hover .cms-capability-track {
+  animation-play-state: paused;
+}
+
+
+/* =========================================
+   SLIDE
+   ========================================= */
+
+.cms-capability-slide {
+  width: 100vw;
+  max-width: 1100px;
+
+  flex-shrink: 0;
+
+  padding: 0 40px;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+   ========================================= */
+
+.cms-capability-main {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    100px
+    minmax(0, 1fr)
+    40px;
+
+  align-items: center;
+
+  min-height: 260px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+
+/* =========================================
+   LARGE NUMBER
+   ========================================= */
+
+.cms-capability-number {
+  font-family: monospace;
+
+  font-size: 42px;
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: -0.05em;
+
+  color: #00a19b;
+}
+
+
+/* =========================================
+   TEXT
+   ========================================= */
+
+.cms-capability-text {
+  max-width: 620px;
+}
+
+.cms-capability-text h3 {
+  margin: 0;
+
+  font-size: clamp(32px, 5vw, 58px);
+  line-height: 0.98;
+
+  font-weight: 700;
+
+  letter-spacing: -0.045em;
+
+  color: #ffffff;
+}
+
+.cms-capability-text p {
+  max-width: 520px;
+
+  margin-top: 22px;
+
+  font-size: 15px;
+  line-height: 1.65;
+
+  color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* =========================================
+   ARROW
+   ========================================= */
+
+.cms-capability-arrow {
+  width: 24px;
+  height: 24px;
+
+  color: #00a19b;
+
+  transition:
+    transform 400ms ease,
+    opacity 400ms ease;
+}
+
+.cms-capability-main:hover .cms-capability-arrow {
+  transform: translateX(6px);
+}
+
+
+/* =========================================
+   NUMBER NAVIGATION
+   ========================================= */
+
+.cms-capability-nav {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 22px;
+
+  margin-top: 26px;
+}
+
+.cms-capability-nav-item {
+  font-family: monospace;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+
+  color: rgba(255, 255, 255, 0.28);
+
+  transition:
+    color 300ms ease,
+    transform 300ms ease;
+}
+
+.cms-capability-nav-item:hover {
+  color: #00a19b;
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   INFINITE LOOP
+   ========================================= */
+
+@keyframes cms-capability-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 640px) {
+
+  .cms-capability-carousel {
+    padding: 14px 0 8px;
+  }
+
+  .cms-capability-track {
+    animation-duration: 42s;
+  }
+
+  .cms-capability-slide {
+    width: 100vw;
+    padding: 0 22px;
+  }
+
+  .cms-capability-main {
+    grid-template-columns: 55px minmax(0, 1fr) 25px;
+
+    min-height: 220px;
+  }
+
+  .cms-capability-number {
+    font-size: 28px;
+  }
+
+  .cms-capability-text h3 {
+    font-size: 30px;
+  }
+
+  .cms-capability-text p {
+    margin-top: 14px;
+
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .cms-capability-arrow {
+    width: 18px;
+    height: 18px;
+  }
+
+  .cms-capability-nav {
+    gap: 13px;
+    margin-top: 20px;
+  }
+
+  .cms-capability-nav-item {
+    font-size: 9px;
+  }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .cms-capability-track {
+    animation: none;
+  }
+}
+
+/* ─────────────────────────────
+   Capability Network
+───────────────────────────── */
+
+.capability-map {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(0, 161, 155, 0.07),
+      transparent 45%
+    );
+}
+
+.capability-map-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.capability-route {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.16);
+  stroke-width: 1.5;
+}
+
+.capability-route-glow {
+  fill: none;
+  stroke: #00A19B;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 14 2000;
+  stroke-dashoffset: 0;
+  animation:
+    capability-route-flow 7s linear infinite;
+  filter: drop-shadow(0 0 5px rgba(0, 161, 155, 0.8));
+}
+
+@keyframes capability-route-flow {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -2000;
+  }
+}
+
+/* Nodes */
+
+.capability-map-node {
+  position: absolute;
+  width: 110px;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: capability-node-reveal 0.6s ease-out forwards;
+}
+
+.capability-map-dot {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.capability-map-dot span {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.capability-map-label {
+  position: absolute;
+  left: 50%;
+  width: 180px;
+  transform: translateX(-50%);
+  text-align: center;
+  margin-top: 10px;
+}
+
+.capability-map-label strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.capability-map-label p {
+  display: none;
+}
+
+/* Sequential reveal */
+
+.capability-map-node-1 { left: 10%; top: 17%; animation-delay: 0.3s; }
+.capability-map-node-2 { left: 50%; top: 17%; animation-delay: 0.8s; }
+.capability-map-node-3 { left: 90%; top: 17%; animation-delay: 1.3s; }
+
+.capability-map-node-4 { left: 90%; top: 50%; animation-delay: 1.8s; }
+.capability-map-node-5 { left: 50%; top: 50%; animation-delay: 2.3s; }
+.capability-map-node-6 { left: 10%; top: 50%; animation-delay: 2.8s; }
+
+.capability-map-node-7 { left: 10%; top: 83%; animation-delay: 3.3s; }
+.capability-map-node-8 { left: 50%; top: 83%; animation-delay: 3.8s; }
+.capability-map-node-9 { left: 90%; top: 83%; animation-delay: 4.3s; }
+
+@keyframes capability-node-reveal {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+
+  70% {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Active-looking pulse */
+
+.capability-map-node::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 21px;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 161, 155, 0.5);
+  transform: translate(-50%, -50%) scale(0.7);
+  opacity: 0;
+  animation: capability-node-pulse 3s ease-in-out infinite;
+}
+
+.capability-map-node-1::after { animation-delay: 1s; }
+.capability-map-node-2::after { animation-delay: 1.5s; }
+.capability-map-node-3::after { animation-delay: 2s; }
+.capability-map-node-4::after { animation-delay: 2.5s; }
+.capability-map-node-5::after { animation-delay: 3s; }
+.capability-map-node-6::after { animation-delay: 3.5s; }
+.capability-map-node-7::after { animation-delay: 4s; }
+.capability-map-node-8::after { animation-delay: 4.5s; }
+.capability-map-node-9::after { animation-delay: 5s; }
+
+@keyframes capability-node-pulse {
+  0%, 60%, 100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+
+  30% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.4);
+  }
+}
+
+/* Hover */
+
+.capability-map-node:hover .capability-map-dot {
+  transform: scale(1.15);
+  border-color: #00A19B;
+  background: rgba(0, 161, 155, 0.08);
+  box-shadow:
+    0 0 20px rgba(0, 161, 155, 0.35),
+    inset 0 0 15px rgba(0, 161, 155, 0.08);
+}
+
+.capability-map-node:hover .capability-map-dot span {
+  color: #00A19B;
+}
+
+.capability-map-node:hover .capability-map-label strong {
+  color: #00A19B;
+}
+
+/* Show description only on hover */
+
+.capability-map-node:hover .capability-map-label p {
+  display: block;
+  margin-top: 7px;
+  font-size: 10px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Mobile */
+
+@media (max-width: 640px) {
+  .capability-map {
+    height: 420px;
+  }
+
+  .capability-map-node {
+    width: 70px;
+  }
+
+  .capability-map-dot {
+    width: 34px;
+    height: 34px;
+  }
+
+  .capability-map-label {
+    width: 120px;
+  }
+
+  .capability-map-label strong {
+    font-size: 8px;
+  }
+
+  .capability-map-node:hover .capability-map-label p {
+    display: none;
+  }
+}
+
+.solution-item {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: solution-item-reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.solution-item:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.solution-item:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.solution-item:nth-child(3) {
+  animation-delay: 0.19s;
+}
+
+.solution-item:nth-child(4) {
+  animation-delay: 0.26s;
+}
+
+.solution-item:nth-child(5) {
+  animation-delay: 0.33s;
+}
+
+@keyframes solution-item-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .solution-item {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

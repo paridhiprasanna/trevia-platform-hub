@@ -60,13 +60,13 @@ export function SiteShell({ children }) {
     <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
       <div className="pointer-events-none fixed inset-x-0 top-0 z-0 h-[460px] bg-sun-glow/55 [mask-image:linear-gradient(to_bottom,black,transparent)]" />
 
-      <header className="z-40 border-b border-line bg-background/90 backdrop-blur-sm">
+      <header className="relative z-40 border-b border-line bg-[#F7F5F1]">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
           <Link to="/" className="shrink-0">
   <img
   src="/images/trevia-wordmark-black-transparent.webp"
   alt="Trevia"
-  className="h-10 w-auto"
+  className="h-10 w-auto brightness-0"
 />
 </Link>
 
@@ -75,29 +75,29 @@ export function SiteShell({ children }) {
               <Link
                 key={item.to}
                 to={item.to}
-                className="transition-colors hover:text-ink"
+                className="group relative text-mute transition-colors duration-200 hover:text-sun"
               >
                 {item.label}
+                <span className="absolute -bottom-1 left-0 h-[2px] w-0 rounded-full bg-sun transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
           </nav>
 
           <div className="flex items-center gap-3">
             <Link
-              to="/contact"
-              className="hidden text-sm font-medium text-ink transition-colors hover:text-sun sm:inline-flex"
-            >
-              Request a Demo
-            </Link>
+  to="/contact"
+  className="request-demo-link hidden text-sm font-medium transition-colors sm:inline-flex"
+>
+  Request a Demo
+</Link>
 
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-md bg-ink px-3.5 py-2 text-sm font-medium text-cream transition-colors hover:bg-ink-2"
-            >
-              Book a Demo
-              <ArrowRight className="size-3.5" />
-            </Link>
-
+<Link
+  to="/contact"
+  className="book-demo-button inline-flex items-center gap-2 rounded-md px-3.5 py-2 text-sm font-medium transition-colors"
+>
+  Book a Demo
+  <ArrowRight className="size-3.5" />
+</Link>
             <button
               type="button"
               aria-label={open ? "Close navigation" : "Open navigation"}
@@ -122,7 +122,7 @@ export function SiteShell({ children }) {
                   key={item.to}
                   to={item.to}
                   onClick={() => setOpen(false)}
-                  className="rounded-md px-3 py-3 text-sm font-medium text-mute hover:bg-cream hover:text-ink"
+                  className="rounded-md px-3 py-3 text-sm font-medium text-mute transition-all duration-200 hover:bg-cream hover:text-sun hover:-translate-y-0.5"
                 >
                   {item.label}
                 </Link>
@@ -142,7 +142,7 @@ export function SiteShell({ children }) {
 
       <main className="relative z-10">{children}</main>
 
-      <footer className="relative z-10 border-t border-line bg-background">
+      <footer className="relative z-10 border-t border-line bg-[#F7F5F1]">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-14 lg:grid-cols-[1.35fr_2.65fr]">
           <div>
             <Link to="/" className="flex items-center">
@@ -161,7 +161,7 @@ export function SiteShell({ children }) {
           <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
             {footerGroups.map((group) => (
               <div key={group.title}>
-                <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-sun">
+                <p className="font-mono text-sm font-semibold uppercase tracking-[0.16em] text-sun">
                   {group.title}
                 </p>
 
