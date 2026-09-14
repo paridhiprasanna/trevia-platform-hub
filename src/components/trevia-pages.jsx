@@ -173,7 +173,7 @@ useEffect(() => {
               The operating layer for your charging network.
             </h1>
 
-            <p className="mt-7 max-w-[38ch] text-base leading-7 text-white/60 sm:text-lg">
+            <p className="mt-7 max-w-[38ch] text-base leading-7 text-white sm:text-lg">
             Trevia CMS connects your chargers over OCPP, giving you one platform
             to monitor, operate, and scale across sites and hardware vendors.</p>
 
@@ -214,7 +214,13 @@ useEffect(() => {
 
           <div className="reveal-up lg:col-span-7">
   <div className="rounded-2xl border border-line bg-cream p-4 sm:p-6">
-    <ArchitectureDiagram />
+    <div className="overflow-hidden rounded-2xl border border-white/10 bg-white shadow-2xl">
+  <img
+    src="/images/dashboard.png"
+    alt="Trevia CMS dashboard"
+    className="block h-auto w-full"
+  />
+</div>
   </div>
 </div>
         </Container>
@@ -884,7 +890,7 @@ useEffect(() => {
 
       <div className="reveal-up parallax-soft group overflow-hidden rounded-2xl border border-cream/10 bg-white shadow-2xl ring-1 ring-white/5">
         <img
-          src="/images/dashboard.png"
+          src="/images/stations.png"
           alt="Trevia CMS dashboard"
           className="block h-auto w-full transition-transform duration-700 group-hover:scale-[1.02]"
         />
@@ -1218,7 +1224,13 @@ export function CMSPage() {
           />
         </div>
 
-        <ArchitectureDiagram />
+        <div className="overflow-hidden rounded-2xl border border-white/10 bg-white shadow-2xl">
+  <img
+    src="/images/dashboard.png"
+    alt="Trevia CMS dashboard"
+    className="block h-auto w-full"
+  />
+</div>
       </Container>
       </section>
 
@@ -1252,19 +1264,37 @@ export function CMSPage() {
           />
 
           <path
-            className="capability-route-glow"
-            d="
-              M 100 90
-              H 500
-              H 900
-              V 220
-              H 500
-              H 100
-              V 350
-              H 500
-              H 900
-            "
-          />
+  className="capability-route-glow"
+  d="
+    M 100 90
+    H 500
+    H 900
+    V 260
+    H 500
+    H 100
+    V 430
+    H 500
+    H 900
+"
+/>
+
+<circle r="5" className="capability-route-pulse">
+  <animateMotion
+    dur="5s"
+    repeatCount="indefinite"
+    path="
+      M 100 90
+      H 500
+      H 900
+      V 260
+      H 500
+      H 100
+      V 430
+      H 500
+      H 900
+    "
+  />
+</circle>
         </svg>
 
         {cmsFeatures.map(([index, title, copy], i) => (
@@ -1291,13 +1321,13 @@ export function CMSPage() {
   <Container className="reveal-up grid gap-10 py-12 lg:grid-cols-2">
     
     <div className="grid gap-5">
-      <div className="overflow-hidden rounded-2xl border border-white/10 bg-white shadow-2xl">
-        <img
-          src="/images/dashboard.png"
-          alt="Trevia CMS dashboard"
-          className="block h-auto w-full"
-        />
-      </div>
+      <div className="cms-dashboard-reveal overflow-hidden rounded-2xl border border-line bg-white shadow-2xl">
+  <img
+    src="/images/stations.png"
+    alt="Trevia CMS dashboard"
+    className="block h-auto w-full"
+  />
+</div>
 
       <div className="overflow-hidden rounded-2xl border border-white/10 bg-white shadow-2xl">
         <img
@@ -2365,11 +2395,8 @@ export function AboutPage() {
           Not a charger manufacturer. Not a closed network.
           </h2>
           
-          <p className="mt-5 max-w-[46ch] leading-relaxed text-white/70">
-          Trevia is not a hardware vendor, not a charge point operator,
-          and not a single-sided consumer app. Its role is to provide
-          the digital infrastructure between chargers, operators,
-          fleets, enterprises, and drivers.
+          <p className="mt-5 max-w-[46ch] text-lg leading-relaxed text-white">
+          Trevia provides the digital infrastructure that connects chargers, operators, fleets, enterprises, and drivers.
           </p>
 
         <div className="mt-7 space-y-3">
@@ -2380,7 +2407,7 @@ export function AboutPage() {
           ].map((item) => (
             <div
               key={item}
-              className="flex items-start gap-3 text-sm text-white"
+              className="flex items-start gap-3 text-lg text-white"
             >
               <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-sun" />
               <span>{item}</span>
@@ -2695,13 +2722,13 @@ export function AboutPage() {
             </h2>
           </div>
 
-          <p className="max-w-xl text-lg leading-relaxed text-white/70">
+          <p className="max-w-xl text-lg leading-relaxed text-white">
           Trevia's vision is to extend the same interoperability model into
           adjacent energy-mobility infrastructure as the market matures.
           </p>
         </Container>
       </section>
-      <section className="reveal-up bg-ink-2 text-cream">
+      <section className="reveal-up bg-ink-2 text-white">
   <Container className="py-12">
     <SectionTitle
       eyebrow="Journey"
@@ -2741,7 +2768,7 @@ export function AboutPage() {
         <div className="flex items-center gap-3">
           <span className="size-2 rounded-full bg-sun shadow-[0_0_12px_rgba(0,161,155,0.9)]" />
 
-          <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-sun">
+          <span className="font-mono text-sm uppercase tracking-[0.2em] text-sun">
             Foundation
           </span>
         </div>
@@ -2750,7 +2777,7 @@ export function AboutPage() {
           Connect
         </h3>
 
-        <p className="mt-4 max-w-sm text-sm leading-6 text-white/55">
+        <p className="mt-4 max-w-sm text-sm leading-6 text-white">
           Build the infrastructure layer between chargers and the
           systems around them.
         </p>
@@ -2778,7 +2805,7 @@ export function AboutPage() {
         <div className="flex items-center gap-3">
           <span className="size-2 rounded-full bg-sun shadow-[0_0_12px_rgba(0,161,155,0.9)]" />
 
-          <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-sun">
+          <span className="font-mono text-sm uppercase tracking-[0.2em] text-sun">
             Operations
           </span>
         </div>
@@ -2787,7 +2814,7 @@ export function AboutPage() {
           Operate
         </h3>
 
-        <p className="mt-4 max-w-sm text-sm leading-6 text-white/55">
+        <p className="mt-4 max-w-sm text-sm leading-6 text-white">
           Give operators a clearer way to monitor and manage
           connected charging infrastructure.
         </p>
@@ -2815,7 +2842,7 @@ export function AboutPage() {
         <div className="flex items-center gap-3">
           <span className="size-2 rounded-full bg-sun shadow-[0_0_12px_rgba(0,161,155,0.9)]" />
 
-          <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-sun">
+          <span className="font-mono text-sm uppercase tracking-[0.2em] text-sun">
             Expansion
           </span>
         </div>
@@ -2824,7 +2851,7 @@ export function AboutPage() {
           Scale
         </h3>
 
-        <p className="mt-4 max-w-sm text-sm leading-6 text-white/55">
+        <p className="mt-4 max-w-sm text-sm leading-6 text-white">
           Extend interoperable charging infrastructure across more
           sites, networks, and use cases.
         </p>

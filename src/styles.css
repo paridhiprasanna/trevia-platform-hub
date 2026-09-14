@@ -809,14 +809,13 @@
 
 .capability-route-glow {
   fill: none;
-  stroke: #00A19B;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-dasharray: 14 2000;
-  stroke-dashoffset: 0;
-  animation:
-    capability-route-flow 7s linear infinite;
-  filter: drop-shadow(0 0 5px rgba(0, 161, 155, 0.8));
+  stroke: rgba(0, 161, 155, 0.18);
+  stroke-width: 3;
+}
+
+.capability-route-pulse {
+  fill: #00A19B;
+  filter: drop-shadow(0 0 8px rgba(0, 161, 155, 0.9));
 }
 
 @keyframes capability-route-flow {
@@ -1055,3 +1054,48 @@
     transform: none;
   }
 }
+
+/* CMS dashboard entrance */
+.cms-dashboard-reveal {
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  animation: cms-dashboard-enter 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  box-shadow:
+    0 0 0 rgba(0, 161, 155, 0),
+    0 25px 60px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes cms-dashboard-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+    box-shadow:
+      0 0 0 rgba(0, 161, 155, 0),
+      0 25px 60px rgba(0, 0, 0, 0.25);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.005);
+    box-shadow:
+      0 0 35px rgba(0, 161, 155, 0.18),
+      0 25px 60px rgba(0, 0, 0, 0.25);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    box-shadow:
+      0 0 18px rgba(0, 161, 155, 0.08),
+      0 25px 60px rgba(0, 0, 0, 0.25);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cms-dashboard-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
